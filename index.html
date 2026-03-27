@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis & Joy | The Enchanted Journey</title>
+
+    <!-- Google Fonts: Pinyon Script (Calligraphy), Cormorant Garamond (Serif), Montserrat (Sans) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Pinyon+Script&family=Montserrat:wght@200;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for Airplane and Heart Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="magic-dust-container"></div>
+    <!-- Wedding Music -->
+    <audio id="weddingMusic" loop>
+        <source
+            src="https://res.cloudinary.com/dtxbngnr7/video/upload/v1774288787/luis-joy-wedding-website-music_xo0kdl.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- ✨ THE ENCHANTED ENTRY OVERLAY ✨ -->
+    <div id="overlay">
+        <canvas id="diamondDust"></canvas>
+        <div class="invitation-wrap">
+            <div class="minimal-plane">
+                <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.2">
+                    <path
+                        d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3-3 .5c-.5.1-.8.3-.9.7l-.3.5c-.2.5.1 1 .6 1.1l4 .5.5 4c.1.5.6.8 1.1.6l.5-.3c.4-.1.6-.4.7-.9l.5-3 3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+                </svg>
+            </div>
+
+            <p class="photo-style-label">YOU'RE INVITED</p>
+            <p class="photo-style-sub">to the wedding of</p>
+            <h1 class="photo-style-names">Luis <span class="amp">&</span> Joy</h1>
+            <p class="minimal-tagline">TAKING OFF TO FOREVER</p>
+
+            <div class="photo-divider">
+                <div class="v-line"></div>
+                <div class="diamond"></div>
+            </div>
+
+            <div class="cta-wrapper">
+                <button id="openBtn" class="ghost-gold-btn">
+                    OPEN THE INVITATION
+                    <div class="shimmer"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ☁️ MAIN WEBSITE CONTENT ☁️ -->
+    <div id="main-content" class="hidden">
+
+        <!-- ✨ MOBILE NAVIGATION ✨ -->
+        <nav class="mobile-nav">
+            <!-- Hamburger Button -->
+            <div class="nav-toggle" id="navToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <!-- Fullscreen Menu -->
+            <div class="nav-overlay" id="navOverlay">
+                <ul class="nav-links">
+                    <li><a href="#main-content">Home</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#locations">Venue</a></li>
+                    <li><a href="#timeline">Schedule</a></li>
+                    <li><a href="#entourage">Entourage</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#rsvp">RSVP</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ✨ MAGICAL HERO SECTION ✨ -->
+        <header class="hero">
+            <div class="hero-inner">
+                <p class="photo-style-label animate-up">THE CELEBRATION OF</p>
+
+                <h1 class="display-names animate-up">Luis <span class="amp">&</span> Joy</h1>
+
+                <p class="hero-tagline animate-up">OUR FOREVER FLIGHT BEGINS</p>
+
+                <!-- Elegant Floating Countdown -->
+                <div id="countdown" class="animate-up floating-timer">
+                    <div class="time-unit">
+                        <span id="days">00</span>
+                        <p>days</p>
+                    </div>
+                    <div class="timer-divider">/</div>
+                    <div class="time-unit">
+                        <span id="hours">00</span>
+                        <p>hours</p>
+                    </div>
+                    <div class="timer-divider">/</div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <p>mins</p>
+                    </div>
+                    <div class="timer-divider">/</div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <p>secs</p>
+                    </div>
+                </div>
+
+                <!-- Flight Path Divider -->
+                <div class="flight-path animate-up">
+                    <div class="path-line"></div>
+                    <div class="plane-icon-wrapper">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="path-line"></div>
+                </div>
+
+                <div class="hero-details animate-up">
+                    <p class="hero-date">APRIL 19, 2026 <span class="dot">•</span> 4:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Magical Scroll Hint -->
+            <div class="scroll-explore animate-up">
+                <p>Explore our journey</p>
+                <div class="scroll-line"></div>
+            </div>
+        </header>
+
+        <!-- ✨ MAGICAL STORY SECTION (PREMIUM) ✨ -->
+        <section class="story">
+            <!-- Subtle Cloud/Mist Background for depth -->
+            <div class="story-mist"></div>
+
+            <div class="container relative-z">
+                <!-- The Floating Sparkle -->
+                <div class="magic-sparkle-icon pulse animate-up">✨</div>
+
+                <div class="story-text-wrap">
+                    <p class="story-intro animate-up">Two hearts taking flight. One journey forever.</p>
+
+                    <div class="quote-container animate-up">
+                        <div class="quote-line left"></div>
+                        <h2 class="script-quote glow-text">Our greatest adventure begins with you.</h2>
+                        <div class="quote-line right"></div>
+                    </div>
+
+                    <p class="refined-text animate-up">
+                        Join us as we exchange vows and celebrate the beginning <br>
+                        of our life together in a magical and unforgettable ceremony.
+                    </p>
+                </div>
+
+                <!-- Delicate Flight Path Divider -->
+                <div class="story-divider animate-up">
+                    <div class="path-dot"></div>
+                    <div class="path-dash"></div>
+                    <i class="fas fa-heart divider-heart"></i>
+                    <div class="path-dash"></div>
+                    <div class="path-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ MAGICAL GENTLE REMINDERS ✨ -->
+        <section class="reminders">
+            <div class="mist-overlay"></div> <!-- Decorative element for depth -->
+
+            <div class="section-intro animate-up">
+                <div class="magic-sparkle-icon pink-glow">✨</div>
+                <h3 class="section-title-script">Gentle Reminders</h3>
+                <p class="section-subtitle">A FEW NOTES FOR OUR GUESTS</p>
+            </div>
+
+            <div class="reminders-container">
+                <!-- Arrival & Ceremony -->
+                <div class="reminder-card frosted-glass animate-up">
+                    <div class="reminder-icon">🕰️</div>
+                    <h4 class="reminder-title">Arrival & Ceremony</h4>
+                    <p class="reminder-text">
+                        The ceremony will begin at exactly <span class="gold-highlight">4:00 PM</span>. To ensure a
+                        smooth
+                        and relaxed experience, we kindly ask our beloved guests to arrive <span
+                            class="gold-highlight">20 to
+                            30 minutes early</span>.
+                    </p>
+                    <div class="mini-divider"></div>
+                    <p class="reminder-note">
+                        We also kindly ask that you stay with us until the very end—as every part of the celebration has
+                        been prepared with love.
+                    </p>
+                </div>
+
+                <!-- Our Guest List -->
+                <div class="reminder-card frosted-glass animate-up">
+                    <div class="reminder-icon">💌</div>
+                    <h4 class="reminder-title">Our Guest List</h4>
+                    <p class="reminder-text">
+                        Due to venue limitations and the size of our families, we have made the thoughtful decision to
+                        keep our guest list <span class="gold-highlight">exclusive to immediate family and close
+                            friends</span>.
+                    </p>
+                    <p class="reminder-text italic-sub">
+                        We truly appreciate your understanding and respect for our wishes as we celebrate this intimate
+                        milestone.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ✨ MAGICAL ENTOURAGE SECTION ✨ -->
+        <section class="entourage">
+            <div class="section-intro animate-up">
+                <div class="magic-sparkle-icon">✨</div>
+                <h3 class="section-title-script">The Entourage</h3>
+                <p class="section-subtitle">THOSE WHO WALK WITH US TO FOREVER</p>
+            </div>
+
+            <!-- Parents - Centered Elegance -->
+            <div class="entourage-block glass-glow animate-up">
+                <h4 class="role-header-script">Beloved Parents</h4>
+                <div class="parent-grid">
+                    <div class="family-side">
+                        <span class="label">Groom's Side</span>
+                        <p class="name">Mr. Renato R. Mendoza</p>
+                        <p class="name">Mrs. Imelda C. Mendoza</p>
+                    </div>
+                    <div class="v-divider"></div>
+                    <div class="family-side">
+                        <span class="label">Bride's Side</span>
+                        <p class="name">Mr. Lamberto M. Peralta</p>
+                        <p class="name">Mrs. Bernadette E. Peralta</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principal Sponsors - Wrapped in glass-glow -->
+            <div class="entourage-block glass-glow animate-up">
+                <h4 class="role-header-script">Principal Sponsors</h4>
+                <div class="row sponsors-grid">
+                    <div class="col">
+                        <span class="label-pink">Ninongs</span>
+                        <ul class="name-list-elegant">
+                            <li>Mr. Crisanto Santiago</li>
+                            <li>Mr. Ronnie Mendoza</li>
+                            <li>Mr. Merwin Galman</li>
+                            <li>Mr. Lando Machete</li>
+                            <li>Mr. Abel Mandap Sr.</li>
+                            <li>Mr. Rufino Enriquez</li>
+                        </ul>
+                    </div>
+                    <!-- Decorative divider for desktop -->
+                    <div class="v-divider"></div>
+                    <div class="col">
+                        <span class="label-pink">Ninangs</span>
+                        <ul class="name-list-elegant">
+                            <li>Mrs. Cristina Posados</li>
+                            <li>Mrs. Josephine Mancenido</li>
+                            <li>Mrs. Jennylind Peralta</li>
+                            <li>Mrs. Susan Alvarado</li>
+                            <li>Mrs. Rufina Agustin</li>
+                            <li>Mrs. Arsenia Aloran</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Roles - The Trio -->
+            <div class="entourage-block glass-glow special-roles animate-up">
+                <div class="row trio">
+                    <div class="trio-item">
+                        <span class="label">Best Man</span>
+                        <p class="script-name">Isaac Renz Mendoza</p>
+                    </div>
+                    <div class="trio-item">
+                        <span class="label">Maid of Honor</span>
+                        <p class="script-name">Hazel Faye Peralta</p>
+                    </div>
+                    <div class="trio-item">
+                        <span class="label">Matron of Honor</span>
+                        <p class="script-name">Queen Michelle Mendoza</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Sponsors - The Three Symbols -->
+            <div class="entourage-block glass-glow secondary-sponsors animate-up">
+                <h4 class="role-header-script">Secondary Sponsors</h4>
+                <div class="row trio">
+                    <!-- Candle -->
+                    <div class="trio-item">
+                        <span class="label">🕯️ Candle</span>
+                        <p class="name">Ian Lambert Peralta</p>
+                        <p class="name">Jaimie Nicole Garcia</p>
+                    </div>
+
+                    <!-- Cord -->
+                    <div class="trio-item">
+                        <span class="label">🎗️ Cord</span>
+                        <p class="name">Joshua Prince Dela Cruz</p>
+                        <p class="name">Ma. Lea Machete</p>
+                    </div>
+
+                    <!-- Veil -->
+                    <div class="trio-item">
+                        <span class="label">👰 Veil</span>
+                        <p class="name">Ehrick John Pacaldo</p>
+                        <p class="name">Alex Villena</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Groomsmen & Bridesmaids - Side by Side -->
+            <div class="entourage-block glass-glow side-by-side animate-up">
+                <div class="row">
+                    <div class="col parties">
+                        <h4 class="role-header-small">🤵 Groomsmen</h4>
+                        <ul class="party-list">
+                            <li>Christian Alvarado</li>
+                            <li>Abel Mandap Jr.</li>
+                            <li>Michael Ramos</li>
+                            <li>Mark Angelo Gonzales</li>
+                            <li>Zannie Castro</li>
+                        </ul>
+                    </div>
+                    <div class="v-divider"></div>
+                    <div class="col parties">
+                        <h4 class="role-header-small">👰 Bridesmaids</h4>
+                        <ul class="party-list">
+                            <li>Patricia Ann Posadas</li>
+                            <li>Nichole Anne Lapada</li>
+                            <li>Ailene Joyce Galman</li>
+                            <li>Vanessa Oclarit</li>
+                            <li>Jazmine Calixtro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Closer -->
+            <div class="photo-divider animate-up">
+                <div class="v-line short"></div>
+                <div class="diamond pink"></div>
+            </div>
+        </section>
+
+
+        <!-- ✨ THE ENCHANTED DESTINATION SECTION ✨ -->
+        <section class="locations">
+            <div class="section-intro animate-up">
+                <div class="magic-sparkle-icon">✨</div>
+                <h3 class="section-title-script">The Destination</h3>
+                <p class="section-subtitle">WHERE OUR NEW CHAPTER BEGINS</p>
+            </div>
+
+            <div class="destination-wrap animate-up">
+                <!-- The Main Card -->
+                <div class="venue-card-premium glass-glow">
+
+                    <!-- Top Half: Romantic Visual -->
+                    <div class="venue-visual">
+                        <div class="venue-overlay"></div>
+                        <img src="venue.jpg" alt="San Pablo MPC Pavilion" class="venue-img">
+                        <div class="venue-tag">WHERE MAGIC TAKES FLIGHT</div>
+                    </div>
+
+                    <!-- Bottom Half: The Details -->
+                    <div class="venue-content">
+                        <h4 class="venue-title-gold">San Pablo MPC Pavilion</h4>
+                        <p class="venue-location-text">Malolos, Bulacan</p>
+
+                        <div class="venue-itinerary-split">
+                            <div class="itin-box">
+                                <span class="itin-label">CEREMONY</span>
+                                <p class="itin-time">4:00 <span class="itin-ampm">PM</span></p>
+                            </div>
+
+                            <div class="itin-divider">
+                                <i class="fas fa-plane itin-plane"></i>
+                            </div>
+
+                            <div class="itin-box">
+                                <span class="itin-label">RECEPTION</span>
+                                <p class="itin-time">6:00 <span class="itin-ampm">PM</span></p>
+                            </div>
+                        </div>
+
+                        <div class="cta-wrapper">
+                            <a href="https://www.google.com/maps/place/San+Pablo+MPC+Pavilion/@14.8423674,120.8458842,17z/data=!3m1!4b1!4m6!3m5!1s0x339653ec5433007b:0xc1e7ac8495584030!8m2!3d14.8423674!4d120.8484591!16s%2Fg%2F11hz5xn851?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D"
+                                target="_blank" class="gold-pulse-btn venue-btn">
+                                OPEN MAPS
+                                <div class="shimmer"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ MAGICAL TIMELINE SECTION ✨ -->
+        <section class="timeline">
+            <div class="section-intro animate-up">
+                <div class="magic-sparkle-icon">✨</div>
+                <h3 class="section-title-script">The Flight Schedule</h3>
+                <p class="section-subtitle">OUR JOURNEY ITINERARY</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Vertical Path Line -->
+                <div class="timeline-path"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-plane"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">3:00 PM</span>
+                        <h4 class="event-title">Arrival of Guests</h4>
+                        <p>Arrival of guests, entourage, and families. Groom arrives and begins ceremony line-up.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-heart"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">3:30 PM – 4:00 PM</span>
+                        <h4 class="event-title">The Procession</h4>
+                        <p>Bride arrives. The wedding procession begins, leading into the ceremony at 4:00 PM.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-camera"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">5:00 PM</span>
+                        <h4 class="event-title">Portraits & Photos</h4>
+                        <p>Couple portrait session and group photo session with families and friends.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">5:30 PM</span>
+                        <h4 class="event-title">Welcome Cocktails</h4>
+                        <p>Guest registration opens. Enjoy snacks, entertainment, and our photo booth.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-cloud"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">6:00 PM</span>
+                        <h4 class="event-title">Private Moments</h4>
+                        <p>A quiet early dinner for the newlywed couple before the main program begins.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-star"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">6:30 PM</span>
+                        <h4 class="event-title">The Grand Reception</h4>
+                        <p>Grand entrance of the families, entourage, and finally, the new Mr. & Mrs. Mendoza!</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-cake-candles"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">7:00 PM</span>
+                        <h4 class="event-title">Wedding Traditions</h4>
+                        <p>First dances, the ceremonial cutting of the cake, and heartfelt toasts.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 8 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-utensils"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">7:20 PM</span>
+                        <h4 class="event-title">Dinner is Served</h4>
+                        <p>A curated feast prepared with love for all our flight companions.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 9 -->
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"><i class="fas fa-music"></i></div>
+                    <div class="timeline-content glass-glow">
+                        <span class="time-tag">8:00 PM</span>
+                        <h4 class="event-title">Celebration & Games</h4>
+                        <p>Fun games, messages from loved ones, and the evening's closing program.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-footer animate-up">
+                <p class="timeline-note">✨ Note: Schedule may slightly adjust depending on the flow of the event.</p>
+                <div class="photo-divider small">
+                    <div class="v-line short"></div>
+                    <div class="diamond pink"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ MAGICAL GALLERY SECTION ✨ -->
+        <section class="gallery">
+            <div class="section-intro">
+                <div class="magic-sparkle-icon">✨</div>
+                <h3 class="section-title-script">Our Journey</h3>
+                <p class="section-subtitle">MOMENTS CAPTURED IN FLIGHT</p>
+            </div>
+
+            <!-- 🎥 SAVE THE DATE VIDEO FEATURE 🎥 -->
+            <div class="video-feature animate-up">
+                <div class="video-frame glass-glow">
+                    <!-- If the file is local (e.g., save-the-date.mp4) -->
+                    <video muted autoplay loop playsinlinecontrols poster="save-the-date.png" class="wedding-video">
+                        <source src="save_the_date.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- OR if the video is on YouTube, comment out the <video> above and use this: -->
+                    <!-- 
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> 
+            -->
+                </div>
+                <p class="video-caption">OUR PRE-WEDDING FILM</p>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- FIRST 6 IMAGES (Visible) -->
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6533.JPG" alt="Joy"></div>
+                </div>
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6536.JPG" alt="Luis"></div>
+                </div>
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6687.JPG" alt="Wedding">
+                    </div>
+                </div>
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6564.JPG" alt="Love"></div>
+                </div>
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6569.JPG" alt="Magic"></div>
+                </div>
+                <div class="gallery-item animate-up">
+                    <div class="photo-frame"><img src="IMG_6549.JPG" alt="Forever">
+                    </div>
+                </div>
+
+                <!-- EXTRA 6 IMAGES (Hidden by default) -->
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6530.JPG" alt="Extra 1">
+                    </div>
+                </div>
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6529.JPG" alt="Extra 2">
+                    </div>
+                </div>
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6523.JPG" alt="Extra 3">
+                    </div>
+                </div>
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6544.JPG" alt="Extra 4">
+                    </div>
+                </div>
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6573.JPG" alt="Extra 5">
+                    </div>
+                </div>
+                <div class="gallery-item hidden-photo">
+                    <div class="photo-frame"><img src="IMG_6560.JPG" alt="Extra 6">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrapper">
+                <button id="loadMoreBtn" class="ghost-gold-btn">
+                    SHOW MORE IMAGES
+                    <div class="shimmer"></div>
+                </button>
+            </div>
+
+            <div class="photo-divider">
+                <div class="v-line short"></div>
+                <div class="diamond pink"></div>
+            </div>
+        </section>
+
+
+        <!-- Attire Section
+        <section class="attire">
+            <h3 class="section-title">🎀 Dress Code</h3>
+            <div class="glass-card">
+                <p class="aesthetic-label">Formal to Semi-Formal</p>
+                <div class="palette">
+                    <div class="swatch" style="background:#E2725B"></div>
+                    <div class="swatch" style="background:#8B4513"></div>
+                    <div class="swatch" style="background:#800000"></div>
+                    <div class="swatch" style="background:#E6A8A8"></div>
+                    <div class="swatch" style="background:#C0C0C0"></div>
+                    <div class="swatch" style="background:#AF849D"></div>
+                </div>
+                <p class="attire-note">We warmly invite you to dress in harmony with our enchanted pink and gray theme.
+                </p>
+            </div>
+        </section> -->
+
+        <!-- ✨ MAGICAL ATTIRE SECTION ✨ -->
+        <section class="attire">
+            <div class="section-intro">
+                <div class="magic-sparkle-icon">✨</div>
+                <h3 class="section-title-script">Wedding Attire</h3>
+                <p class="section-subtitle">DRESS IN HARMONY WITH OUR JOURNEY</p>
+            </div>
+
+            <div class="attire-container glass-glow animate-up">
+                <p class="photo-style-label pink-text">FORMAL TO SEMI-FORMAL</p>
+
+                <p class="attire-description">
+                    We kindly invite our beloved guests to celebrate with us <br>
+                    in attire that reflects the soft, enchanted hues of our <br>
+                    <span class="highlight-script">Wedding Palette</span>
+                </p>
+
+                <!-- Color Palette Grid (Light Pink & Gray Tones) -->
+                <div class="palette-grid">
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #F8E1E1;"></div>
+                        <span>Blush</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #E4B4B4;"></div>
+                        <span>Dusty Rose</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #D8A7B1;"></div>
+                        <span>Mauve</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #E5E5E5;"></div>
+                        <span>Mist</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #C0C0C0;"></div>
+                        <span>Silver</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="swatch" style="background: #8E9AAF;"></div>
+                        <span>Slate</span>
+                    </div>
+                </div>
+
+                <!-- Role Specific Requirements -->
+                <div class="specific-attire-box">
+                    <div class="attire-col">
+                        <h5 class="attire-role">NINONGS</h5>
+                        <p class="attire-detail">Barong and Slacks</p>
+                    </div>
+                    <div class="attire-divider"></div>
+                    <div class="attire-col">
+                        <h5 class="attire-role">NINANGS</h5>
+                        <p class="attire-detail">Metallic Gray Gown</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ✨ MAGICAL GIFT GUIDE SECTION ✨ -->
+        <section class="gift-guide">
+            <div class="section-intro">
+                <div class="magic-sparkle-icon animate-up">✨</div>
+                <h3 class="section-title-script">Gifts of Love</h3>
+                <p class="section-subtitle">BLESSINGS FOR OUR NEW JOURNEY</p>
+            </div>
+
+            <div class="gift-container glass-glow animate-up">
+                <div class="gift-message">
+                    <p class="refined-text">
+                        Your presence at our wedding is the greatest gift of all. <br>
+                        However, should you wish to bless us with a gift, <br>
+                        a monetary contribution towards our new life together <br>
+                        would be truly appreciated.
+                    </p>
+                </div>
+
+                <!-- QR Grid for Two Options -->
+                <div class="qr-grid">
+                    <!-- GCash QR -->
+                    <div class="qr-item">
+                        <div class="qr-frame">
+                            <img src="gcash-qr.png" alt="GCash QR Code" class="qr-image">
+                            <div class="qr-glow"></div>
+                        </div>
+                        <div class="qr-details">
+                            <!-- <p class="account-name">LUIS M.</p> -->
+                            <p class="account-service">GCASH REGISTRY</p>
+                        </div>
+                    </div>
+
+                    <!-- Metrobank QR -->
+                    <div class="qr-item">
+                        <div class="qr-frame">
+                            <img src="metrobank-qr.png" alt="Metrobank QR Code" class="qr-image">
+                            <div class="qr-glow"></div>
+                        </div>
+                        <div class="qr-details">
+                            <!-- <p class="account-name">JOY P.</p> -->
+                            <p class="account-service">METROBANK REGISTRY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-divider small">
+                    <div class="v-line short"></div>
+                    <div class="diamond pink"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ MOODY & MAGICAL RSVP SECTION ✨ -->
+        <section class="rsvp" id="rsvp">
+            <div class="rsvp-bg-overlay"></div>
+
+            <div class="section-intro animate-up">
+                <div class="magic-sparkle-icon pink-glow">✨</div>
+                <h3 class="section-title-script gold-text">Final Boarding Call</h3>
+                <!-- Updated Deadline in Subtitle -->
+                <p class="section-subtitle white-text">KINDLY CONFIRM YOUR ATTENDANCE BEFORE APRIL 12, 2026</p>
+            </div>
+
+            <div class="dark-glass animate-up">
+                <div class="boarding-pass-header">
+                    <div class="airplane-flight-path">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <p class="boarding-label">FLIGHT TO FOREVER</p>
+                </div>
+
+                <!-- Your Specific Wording Added Here -->
+                <p class="rsvp-message white-text">
+                    Reserve your seat for our special day on <span class="gold-highlight">April 19, 2026</span>. <br>
+                    Your presence is our favorite destination. <br>
+                    Please let us know if you can join our magical journey.
+                </p>
+
+                <form id="rsvpForm" class="magical-form light-labels">
+                    <div class="input-group">
+                        <label for="name">FULL NAME</label>
+                        <input type="text" id="name" name="name" placeholder="As written on your invitation" required>
+                        <div class="input-glow-line"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="attendance">WILL YOU JOIN THE FLIGHT?</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="" disabled selected>Please select...</option>
+                            <option value="accept">Joyfully Accepts</option>
+                            <option value="decline">Regretfully Declines</option>
+                        </select>
+                        <div class="input-glow-line"></div>
+                    </div>
+
+                    <div class="cta-wrapper">
+                        <button type="submit" class="gold-pulse-btn">
+                            CONFIRM BOARDING
+                            <div class="shimmer"></div>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="flight-divider small">
+                    <div class="line gold"></div>
+                    <i class="fas fa-heart pink-heart"></i>
+                    <div class="line gold"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ✨ MAGICAL MINIMALIST FOOTER ✨ -->
+        <footer class="footer-minimal">
+            <div class="footer-content">
+                <!-- Small Flight Path -->
+                <div class="footer-divider">
+                    <div class="f-line"></div>
+                    <i class="fas fa-plane footer-plane"></i>
+                    <div class="f-line"></div>
+                </div>
+
+                <p class="footer-tagline">OUR JOURNEY BEGINS HERE</p>
+
+                <p class="footer-names">
+                    Luis <span class="amp-pink">&</span> Joy
+                    <span class="footer-year">• 2026</span>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ✨ FLOATING MUSIC CONTROL ✨ -->
+    <button id="musicToggle" class="music-control">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+    <!-- QUICK NAVIGATION BUTTONS -->
+    <div class="quick-nav" id="quickNav"> <!-- Added id="quickNav" here -->
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="nav-fab" title="Back to Top">
+            <span class="fab-icon">↑</span>
+        </button>
+        <!-- RSVP Quick Link -->
+        <a href="#rsvp" class="rsvp-fab">
+            <span class="fab-text">RSVP</span>
+            <span class="fab-icon">📩</span>
+        </a>
+    </div>
+
+
+</body>
+
+</html>

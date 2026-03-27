@@ -1,0 +1,2160 @@
+:root {
+    --slate-dark: #1a1c22;
+    --slate-medium: #2c313a;
+    --dusty-rose: #e4b4b4;
+    --gold: #c5a059;
+    --white-silk: #fcfcfc;
+    --gray-light: #d1d1d1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--white-silk);
+    color: var(--slate-medium);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+}
+
+/* --- OVERLAY STYLES --- */
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: radial-gradient(circle at center, rgba(44,49,58,0.9) 0%, rgba(26, 20, 22, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#diamondDust { position: absolute; width: 100%; height: 100%; }
+
+.invitation-wrap {
+    position: relative;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    z-index: 10;
+}
+
+.photo-style-label {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    letter-spacing: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+}
+
+.photo-style-sub {
+    font-family: 'Pinyon Script', cursive;
+    color: var(--white-silk);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.photo-style-names {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 7.5rem; 
+    color: var(--gold);
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(228, 180, 180, 0.3), 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.photo-style-names .amp {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--dusty-rose);
+    font-size: 3.5rem;
+    margin: 0 20px;
+}
+
+.minimal-tagline {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gray-light);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    margin-top: 20px;
+}
+
+.photo-divider { display: flex; flex-direction: column; align-items: center; margin: 60px 0; }
+.v-line { width: 1px; height: 70px; background: linear-gradient(to bottom, transparent, var(--gold)); }
+.diamond { width: 6px; height: 6px; background: var(--dusty-rose); transform: rotate(45deg); box-shadow: 0 0 10px var(--dusty-rose); }
+
+/* --- HERO SECTION --- */
+.hidden { display: none; opacity: 0; }
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    /* Moody gradient overlay so the cockpit looks like it's at dusk/night */
+    background: linear-gradient(rgba(17, 19, 23, 0.7), rgba(17, 19, 23, 0.85)), 
+                url('hero.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hero-inner {
+    z-index: 5;
+    padding: 0 20px;
+}
+
+/* Names with Pink Glow Bloom */
+.display-names {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 7rem;
+    color: var(--gold);
+    margin: 10px 0;
+    line-height: 1;
+    /* Soft bloom effect */
+    text-shadow: 0 0 30px rgba(228, 180, 180, 0.4), 0 0 60px rgba(197, 160, 89, 0.2);
+}
+
+.display-names .amp {
+    color: var(--dusty-rose);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    margin: 0 10px;
+}
+
+.hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--white-silk);
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* --- FLOATING TIMER (No Boxes) --- */
+.floating-timer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.time-unit {
+    text-align: center;
+}
+
+.time-unit span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 200;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+}
+
+.time-unit p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+    margin-top: 8px;
+}
+
+.timer-divider {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.3;
+    padding-bottom: 15px;
+}
+
+/* --- FLIGHT PATH DIVIDER --- */
+.flight-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.path-line {
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.plane-icon-wrapper {
+    color: var(--dusty-rose);
+    font-size: 1.1rem;
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 8px var(--dusty-rose));
+}
+
+/* Scroll Indicator */
+.scroll-explore {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.5;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(var(--gold), transparent);
+    margin: 15px auto 0;
+}
+
+
+/* @media (max-width: 768px) {
+    .display-names { font-size: 4.5rem; }
+    .time-unit span { font-size: 1.8rem; }
+    .floating-timer { gap: 8px; }
+} */
+
+/* --- IMPROVED MOBILE RESPONSIVENESS --- */
+
+@media (max-width: 768px) {
+    /* Make the Names much larger on mobile */
+    .display-names {
+        font-size: 5.5rem; /* Increased size */
+        margin: 5px 0;
+        line-height: 1.1;
+    }
+
+    .display-names .amp {
+        font-size: 2.2rem; /* Adjusted ampersand size */
+        margin: 0 8px;
+    }
+
+    /* Adjust the Tagline */
+    .hero-tagline {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+
+    /* Shrink the label slightly to make names pop more */
+    .photo-style-label {
+        letter-spacing: 6px;
+        font-size: 0.65rem;
+    }
+
+    /* Floating Timer - ensure it doesn't wrap awkwardly */
+    .floating-timer {
+        gap: 8px;
+        margin: 30px 0;
+    }
+
+    .time-unit span {
+        font-size: 2rem; /* Slightly smaller for better fit */
+    }
+
+    .time-unit p {
+        font-size: 0.5rem;
+        letter-spacing: 2px;
+    }
+
+    .timer-divider {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
+
+    /* Flight Path */
+    .path-line {
+        width: 60px; /* Shorter lines for mobile */
+    }
+
+    /* Overlay Names (Entrance Screen) */
+    .photo-style-names {
+        font-size: 4.8rem;
+    }
+}
+
+/* Extra Small Screens (iPhone SE / Small Androids) */
+@media (max-width: 380px) {
+    .display-names {
+        font-size: 4.5rem;
+    }
+    
+    .floating-timer {
+        gap: 5px;
+    }
+    
+    .time-unit span {
+        font-size: 1.7rem;
+    }
+}
+
+/* Countdown */
+#countdown { display: flex; justify-content: center; gap: 20px; margin: 40px 0; }
+.time-box { text-align: center; min-width: 85px; padding: 15px; border: 1px solid rgba(197, 160, 89, 0.3); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
+.time-box span { display: block; font-size: 2.2rem; font-family: 'Montserrat', sans-serif; color: var(--gold); text-shadow: 0 0 10px rgba(228, 180, 180, 0.4); }
+.time-box p { font-size: 0.6rem; letter-spacing: 3px; color: var(--dusty-rose); margin-top: 5px; }
+
+/* Flight Divider */
+.flight-divider { display: flex; align-items: center; justify-content: center; gap: 25px; margin: 40px 0; }
+.flight-divider .line { height: 1px; width: 80px; background: linear-gradient(to right, transparent, var(--gold)); }
+.flight-divider .line:last-child { background: linear-gradient(to left, transparent, var(--gold)); }
+.plane-icon { color: var(--dusty-rose); font-size: 1.2rem; transform: rotate(45deg); }
+
+.hero-details p { font-family: 'Montserrat', sans-serif; letter-spacing: 5px; font-size: 0.75rem; color: var(--gray-light); margin: 10px 0; }
+.dot { color: var(--gold); margin: 0 10px; }
+
+/* --- STORY & SECTIONS --- */
+/* .story { background: var(--white-silk); padding: 120px 20px; text-align: center; }
+.script-names { font-family: 'Pinyon Script', cursive; font-size: 3.5rem; color: var(--gold); display: inline-block; margin: 15px 0; }
+.refined-text { font-size: 1.7rem; font-style: italic; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+
+.section-title { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); margin: 80px 0 60px; text-transform: uppercase; letter-spacing: 5px; } */
+
+
+
+/* --- PREMIUM STORY SECTION --- */
+.story {
+    padding: 160px 20px; /* More space for luxury feel */
+    background: radial-gradient(circle at center, #ffffff 0%, #fdf8f8 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Subtle Mist/Atmosphere */
+.story-mist {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/p6.png'); /* Light grain */
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.relative-z { position: relative; z-index: 5; }
+
+/* Sparkle Pulse Animation */
+.pulse {
+    animation: sparklePulse 3s infinite ease-in-out;
+}
+
+@keyframes sparklePulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 15px var(--dusty-rose); }
+}
+
+/* Typography Hierarchy */
+.story-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.quote-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.quote-line {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.quote-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
+
+.script-quote.glow-text {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 4rem; /* Larger and more prominent */
+    color: var(--gold);
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
+}
+
+.refined-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 2;
+    color: var(--slate-medium);
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Delicate New Divider */
+.story-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 60px;
+}
+
+.path-dot {
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.path-dash {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.3;
+}
+
+.divider-heart {
+    color: var(--dusty-rose);
+    font-size: 0.8rem;
+    filter: drop-shadow(0 0 5px var(--dusty-rose));
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .story { padding: 100px 20px; }
+    .script-quote.glow-text { font-size: 2.8rem; }
+    .refined-text { font-size: 1.2rem; }
+    .quote-line { width: 30px; }
+}
+
+
+/* --- IMPROVED STORY SECTION --- */
+/* .story {
+    background-color: var(--white-silk);
+    padding: 140px 20px;
+    text-align: center;
+    position: relative;
+} */
+
+/* Sparkle glow effect */
+.magic-sparkle-icon {
+    font-size: 1.8rem;
+    color: var(--dusty-rose);
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 8px rgba(228, 180, 180, 0.6));
+}
+
+.refined-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; /* Slightly smaller for elegance */
+    font-style: italic;
+    line-height: 2.2; /* Airy line height */
+    color: var(--slate-medium);
+    letter-spacing: 1px;
+}
+
+/* Calligraphy Quote Style */
+.script-quote {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3rem;
+    color: var(--gold);
+    display: block;
+    margin: 20px 0;
+    font-style: normal; /* Removes italics from script for clarity */
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+}
+
+.v-line.short {
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .story { padding: 80px 20px; }
+    .refined-text { font-size: 1.25rem; line-height: 2; }
+    .script-quote { font-size: 2.2rem; }
+}
+
+/* --- ENTOURAGE SECTION STYLES --- */
+.entourage {
+    padding: 100px 20px;
+    background: radial-gradient(circle at top, #ffffff 0%, #fdf8f8 100%);
+    text-align: center;
+}
+
+.section-title-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 4.5rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 6px;
+    font-size: 0.7rem;
+    color: var(--slate-medium);
+    opacity: 0.6;
+    margin-bottom: 60px;
+}
+
+
+.secondary-sponsors .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; 
+    font-style: italic;
+    margin: 5px 0;
+    color: var(--slate-medium);
+}
+
+.secondary-sponsors .label {
+    margin-bottom: 20px;
+    color: var(--dusty-rose); 
+}
+
+
+@media (max-width: 768px) {
+    .secondary-sponsors .trio-item {
+        margin-bottom: 30px;
+    }
+    .secondary-sponsors .trio-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Glassmorphism Cards */
+.glass-glow {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    border-radius: 20px;
+    padding: 50px 30px;
+    box-shadow: 0 15px 35px rgba(228, 180, 180, 0.1);
+    margin: 40px auto 80px;
+    max-width: 900px;
+    transition: transform 0.4s ease;
+}
+
+.glass-glow:hover {
+    transform: translateY(-5px);
+    border-color: var(--dusty-rose);
+}
+
+.role-header-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+/* Parent Grid */
+.parent-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.family-side .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    margin: 10px 0;
+    font-style: italic;
+    color: var(--slate-medium);
+}
+
+.v-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(transparent, var(--gold), transparent);
+}
+
+/* Sponsor & Party Lists */
+.name-list-elegant {
+    list-style: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 2.5;
+    color: var(--slate-medium);
+}
+
+.label-pink {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--dusty-rose);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.script-name {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-top: 10px;
+}
+
+.role-header-small {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--dusty-rose);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.party-list {
+    list-style: none;
+    font-size: 1.15rem;
+    color: var(--slate-medium);
+    line-height: 2.2;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .section-title-script { font-size: 3.2rem; }
+    .parent-grid { flex-direction: column; gap: 20px; }
+    .v-divider { width: 60px; height: 1px; }
+    .trio { flex-direction: column; gap: 40px; }
+    .glass-glow { padding: 40px 20px; width: 95%; }
+}
+
+
+.role-header { color: var(--dusty-rose); font-size: 1.8rem; margin-bottom: 30px; font-style: italic; }
+.row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; }
+.label { display: block; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; color: var(--gold); margin-bottom: 10px; font-weight: 600; }
+ul.name-list { list-style: none; line-height: 2.2; }
+.columns-2 { column-count: 2; text-align: left; }
+
+.glass-card { background: white; padding: 60px 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-radius: 4px; margin: 20px auto; max-width: 800px; text-align: center; }
+.palette { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+.swatch { width: 45px; height: 45px; border-radius: 50%; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- BUTTONS & ANIMATIONS --- */
+.ghost-gold-btn { background: transparent; border: 1px solid rgba(197, 160, 89, 0.5); color: var(--gold); padding: 20px 60px; font-family: 'Montserrat', sans-serif; letter-spacing: 6px; cursor: pointer; position: relative; overflow: hidden; transition: 0.6s; }
+.ghost-gold-btn:hover { border-color: var(--dusty-rose); color: var(--dusty-rose); box-shadow: 0 0 25px rgba(228, 180, 180, 0.4); }
+.shimmer { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent); transform: skewX(-30deg); animation: shine 4s infinite; }
+@keyframes shine { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
+
+.animate-up { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.reveal { opacity: 1; transform: translateY(0); }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.minimal-plane { animation: float 4s ease-in-out infinite; }
+
+footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; }
+
+@media (max-width: 768px) {
+    .photo-style-names { font-size: 4rem; }
+    .display-names { font-size: 3.5rem; }
+    .columns-2 { column-count: 1; text-align: center; }
+}
+
+
+/* --- CLEAN GALLERY STYLES --- */
+.gallery {
+    padding: 100px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 25px;
+    padding: 20px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* Makes all photos square and uniform */
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+}
+
+/* Initially hide the second batch */
+.hidden-photo {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.photo-frame {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Magical Hover */
+.gallery-item:hover .photo-frame {
+    transform: scale(1.05);
+    border-color: var(--dusty-rose);
+    box-shadow: 0 10px 30px rgba(228, 180, 180, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
+}
+
+/* --- GENTLE REMINDERS STYLES --- */
+.reminders {
+    padding: 100px 20px;
+    background: radial-gradient(circle at bottom, #ffffff 0%, #fdf8f8 100%);
+    text-align: center;
+}
+
+.reminders-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- ENHANCED GENTLE REMINDERS (MISTY GRAY) --- */
+.reminders {
+    padding: 140px 20px;
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f4f7 50%, #ffffff 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background "mist" effect */
+.mist-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/p6.png'); /* Very subtle grain */
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.reminders-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Frosted Glass Card Style */
+.frosted-glass {
+    flex: 1;
+    min-width: 340px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 70px 45px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.05),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frosted-glass:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--gold);
+    box-shadow: 0 20px 45px rgba(228, 180, 180, 0.2);
+}
+
+.reminder-icon {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.reminder-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    color: var(--slate-medium);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.reminder-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    line-height: 1.8;
+    color: var(--slate-medium);
+    margin-bottom: 25px;
+}
+
+.gold-highlight {
+    color: var(--gold);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.italic-sub {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 1.25rem;
+}
+
+.mini-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 10px 0 30px;
+    opacity: 0.3;
+}
+
+.reminder-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--slate-text);
+    line-height: 1.6;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .reminders { padding: 100px 20px; }
+    .frosted-glass {
+        padding: 50px 30px;
+        min-width: 100%;
+    }
+    .reminder-text { font-size: 1.25rem; }
+}
+
+/* --- LOCATIONS SECTION STYLES --- */
+.locations {
+    padding: 100px 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.locations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.location-card {
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Reusing your magical glass-glow */
+}
+
+.location-icon {
+    font-size: 2.5rem;
+    color: var(--dusty-rose);
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 10px rgba(228, 180, 180, 0.4));
+}
+
+.location-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.location-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--slate-medium);
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.location-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--slate-medium);
+    text-transform: uppercase;
+}
+
+.location-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--slate-medium);
+    margin: 10px 0 40px;
+}
+
+/* Mini version of your gold button for the cards */
+.ghost-gold-btn.mini {
+    padding: 12px 30px;
+    font-size: 0.65rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Connector for the two venues */
+.location-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.4;
+}
+
+.dash-line {
+    width: 1px;
+    height: 100px;
+    border-left: 1px dashed var(--gold);
+}
+
+.location-connector i {
+    color: var(--gold);
+    transform: rotate(180deg); /* Plane flying downwards to the next venue */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+    .locations-container { flex-direction: column; }
+    .location-connector {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .dash-line { width: 60px; height: 1px; border-top: 1px dashed var(--gold); border-left: none; }
+    .location-connector i { transform: rotate(90deg); }
+}
+
+
+/* --- MAGICAL ATTIRE SECTION STYLES --- */
+.attire {
+    padding: 120px 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.attire-container {
+    max-width: 850px;
+    margin: 0 auto;
+    /* This uses the same magical glass effect as your Entourage */
+    padding: 70px 40px;
+    border-radius: 30px;
+}
+
+.pink-text {
+    color: var(--dusty-rose) !important;
+}
+
+.attire-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--slate-medium);
+    margin: 20px 0 40px;
+}
+
+.highlight-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.8rem;
+    color: var(--gold);
+    display: block;
+    margin-top: 10px;
+}
+
+/* Palette Swatches */
+.palette-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.palette-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.palette-item .swatch {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.palette-item:hover .swatch {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 15px 30px rgba(228, 180, 180, 0.3);
+}
+
+.palette-item span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--slate-medium);
+    opacity: 0.6;
+}
+
+/* Ninong & Ninang Section */
+.specific-attire-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.attire-col {
+    flex: 1;
+}
+
+.attire-role {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.attire-detail {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--slate-medium);
+}
+
+.attire-divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(transparent, var(--gold), transparent);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .attire-container { padding: 50px 20px; }
+    .palette-grid { gap: 12px; }
+    .palette-item .swatch { width: 45px; height: 45px; }
+    .specific-attire-box { flex-direction: column; gap: 40px; }
+    .attire-divider { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+}
+
+/* --- MAGICAL GIFT GUIDE STYLES --- */
+.gift-guide {
+    padding: 120px 20px;
+    background: radial-gradient(circle at center, #ffffff 0%, #fdf8f8 100%);
+    text-align: center;
+}
+
+.gift-container {
+    max-width: 900px; /* Widened to fit two QRs */
+    margin: 0 auto;
+    padding: 70px 40px;
+}
+
+.gift-message .refined-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+/* QR Grid Styling */
+.qr-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Space between the two QRs */
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Stacks on mobile */
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.qr-frame {
+    position: relative;
+    padding: 15px;
+    background: white;
+    border: 1px solid rgba(197, 160, 89, 0.2); /* Soft Gold border */
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.qr-frame:hover {
+    transform: translateY(-10px);
+    border-color: var(--dusty-rose);
+    box-shadow: 0 15px 45px rgba(228, 180, 180, 0.3);
+}
+
+.qr-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.qr-glow {
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 30px rgba(228, 180, 180, 0.1);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.qr-details {
+    margin-top: 25px;
+}
+
+.account-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    color: var(--slate-medium);
+}
+
+.account-service {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-top: 8px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .qr-grid { gap: 50px; }
+    .gift-container { padding: 50px 20px; width: 95%; }
+    .qr-image { max-width: 180px; }
+}
+
+
+/* --- MOODY MAGICAL RSVP - HIGH VISIBILITY FIX --- */
+.rsvp {
+    padding: 140px 20px;
+    position: relative;
+    background: radial-gradient(circle at center, #2c313a 0%, #111317 100%);
+    overflow: hidden;
+    text-align: center;
+}
+
+.rsvp-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('hero.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.15; /* Increased opacity slightly */
+    filter: blur(10px);
+    z-index: 1;
+}
+
+/* --- Section Intro --- */
+.section-title-script.gold-text {
+    font-size: 5rem; /* Large and clear */
+    color: #f9e295 !important; /* Brighter gold */
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+    margin-bottom: 10px;
+}
+
+.section-subtitle.white-text {
+    color: #ffffff !important;
+    letter-spacing: 5px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 1; /* Full opacity for readability */
+}
+
+/* --- The Dark Glass Card --- */
+.dark-glass {
+    position: relative;
+    z-index: 5;
+    background: rgba(30, 35, 45, 0.7); /* Slightly darker, more solid glass */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 40px;
+    padding: 80px 50px;
+    max-width: 650px;
+    margin: 40px auto 0;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Flight to Forever Text - Fixed Visibility */
+.boarding-label {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 6px;
+    font-size: 0.8rem; /* Increased size */
+    color: #f9e295 !important; /* Changed to bright gold for visibility */
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    text-shadow: 0 0 10px rgba(249, 226, 149, 0.3);
+}
+
+.rsvp-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; /* Increased for readability */
+    font-style: italic;
+    color: #ffffff !important;
+    margin: 30px 0 50px;
+    line-height: 1.6;
+    opacity: 1;
+}
+
+/* --- Form Labels (Full Name, etc) --- */
+.input-group label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; /* Increased */
+    letter-spacing: 4px;
+    color: #f9e295 !important; /* Brighter gold */
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Input Fields --- */
+.magical-form input, 
+.magical-form select {
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important; /* Thicker line */
+    padding: 15px 0 !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.4rem !important; /* Larger text */
+    color: #ffffff !important;
+    outline: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Placeholder visibility */
+.magical-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-style: italic;
+}
+
+.input-glow-line {
+    height: 2px;
+    width: 0%;
+    background: #e4b4b4; /* Pink */
+    transition: width 0.6s ease;
+    margin-top: -2px;
+    box-shadow: 0 0 15px #e4b4b4;
+}
+
+.magical-form input:focus ~ .input-glow-line,
+.magical-form select:focus ~ .input-glow-line {
+    width: 100%;
+}
+
+/* --- The Button --- */
+.gold-pulse-btn {
+    width: 100%;
+    background: #c5a059;
+    color: #111;
+    border: none;
+    padding: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Bolder */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.4s;
+    font-size: 0.9rem;
+}
+
+.gold-pulse-btn:hover {
+    background: #f9e295;
+    box-shadow: 0 0 40px rgba(197, 160, 89, 0.7);
+    transform: translateY(-3px);
+}
+
+/* Highlight the date inside the RSVP message */
+.gold-highlight {
+    color: #f9e295;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(249, 226, 149, 0.4);
+}
+
+/* Ensure the RSVP section subtitle is very clear */
+.section-subtitle.white-text {
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: block;
+    color: #ffffff !important;
+}
+
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .dark-glass { padding: 40px 20px; width: 95%; }
+    .display-names { font-size: 3.5rem; }
+    .section-title-script.gold-text { font-size: 3.5rem; }
+    .magical-form input, .magical-form select { font-size: 1.2rem !important; }
+}
+
+
+/* --- FOOTER HIGH-VISIBILITY FIX --- */
+.footer-minimal {
+    padding: 80px 20px 60px;
+    background: #ffffff;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid rgba(166, 124, 55, 0.2); /* Deep gold border */
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.f-line {
+    height: 1.5px;
+    width: 60px;
+    background: var(--gold); /* Uses the deeper gold */
+}
+
+.footer-plane {
+    color: var(--gold);
+    font-size: 1rem;
+    transform: rotate(45deg);
+}
+
+.footer-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--slate-text); /* Much darker gray */
+    font-weight: 700; /* Bolder */
+    margin-bottom: 15px;
+}
+
+.footer-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--slate-medium); /* Darkest gray */
+    font-weight: 700;
+}
+
+.amp-pink {
+    font-family: 'Pinyon Script', cursive;
+    color: #d896a3; /* Deepened pink for readability */
+    font-size: 2.2rem;
+    margin: 0 10px;
+    font-style: normal;
+}
+
+.footer-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* --- MUSIC TOGGLE STYLES --- */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999 !important; /* Forces it to the very top layer */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    
+    /* Change this part */
+    display: none; /* JS will change this to flex */
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.3s ease;
+    
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+/* Add this new class */
+.music-control.show-it {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    background: var(--gold);
+    color: #fff;
+}
+
+.music-control.muted {
+    color: var(--dusty-rose);
+    border-color: var(--dusty-rose);
+}
+
+/* Sparkle Animation for Canvas Particles */
+@keyframes sparklePulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* --- MAGICAL TIMELINE STYLES (CENTERED VERSION) --- */
+.timeline {
+    padding: 100px 20px;
+    background: #ffffff;
+    text-align: center; /* Centers the header and footer */
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-container {
+    max-width: 700px; /* Narrower for a more elegant centered look */
+    margin: 60px auto;
+    position: relative;
+    padding-left: 50px; /* Space for the line */
+    text-align: left; /* Keeps text inside cards left-aligned for readability */
+}
+
+/* The Flight Path Line - Adjusted to sit correctly with centered container */
+.timeline-path {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-left: 2px dashed var(--gold);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* The Plane/Icon Dot */
+.timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 20px;
+    width: 36px;
+    height: 36px;
+    background: white;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dusty-rose);
+    font-size: 0.9rem;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(228, 180, 180, 0.2);
+}
+
+/* Timeline Content Card */
+.timeline-content {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    border-radius: 20px;
+    padding: 30px !important;
+    box-shadow: 0 15px 35px rgba(228, 180, 180, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(5px);
+    border-color: var(--dusty-rose);
+}
+
+.time-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.event-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--slate-medium);
+    margin-bottom: 8px;
+}
+
+/* Note Section at the Bottom */
+.timeline-footer {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.timeline-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--slate-medium);
+    opacity: 0.8;
+    display: inline-block;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .timeline-container {
+        max-width: 90%;
+        padding-left: 40px;
+    }
+    .timeline-dot {
+        left: -42px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* --- VIDEO FEATURE STYLES --- */
+.video-feature {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.video-frame {
+    position: relative;
+    padding: 15px !important; /* Spacing inside the glass frame */
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(228, 180, 180, 0.2);
+}
+
+.wedding-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Aspect ratio fix for YouTube iframes if you use them */
+.video-frame iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
+.video-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin-top: 25px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* Mobile responsive tweak */
+@media (max-width: 768px) {
+    .video-feature {
+        margin-bottom: 40px;
+    }
+    .video-frame {
+        padding: 10px !important;
+    }
+}
+
+/* --- ENCHANTED DESTINATION (PREMIUM) --- */
+.locations {
+    padding: 140px 20px;
+    background: radial-gradient(circle at bottom, #ffffff 0%, #fff5f5 100%);
+    text-align: center;
+}
+
+.destination-wrap {
+    max-width: 750px;
+    margin: 60px auto 0;
+}
+
+.venue-card-premium {
+    overflow: hidden;
+    padding: 0 !important; /* Overriding previous padding */
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* 1. The Image Section */
+.venue-visual {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.venue-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s ease;
+}
+
+.venue-card-premium:hover .venue-img {
+    transform: scale(1.1);
+}
+
+.venue-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+    z-index: 1;
+}
+
+.venue-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    letter-spacing: 6px;
+    font-size: 0.7rem;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* 2. The Content Section */
+.venue-content {
+    padding: 50px 40px;
+}
+
+.venue-title-gold {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.venue-location-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--slate-medium);
+    opacity: 0.7;
+    margin-bottom: 40px;
+}
+
+/* 3. The Itinerary Split */
+.venue-itinerary-split {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.itin-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--dusty-rose);
+    font-weight: 600;
+}
+
+.itin-time {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3.5rem;
+    color: var(--slate-medium);
+    margin-top: -5px;
+}
+
+.itin-ampm {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    vertical-align: middle;
+}
+
+.itin-divider {
+    position: relative;
+    width: 80px;
+}
+
+.itin-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.itin-plane {
+    color: var(--gold);
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    position: relative;
+    z-index: 2;
+    background: #fff; /* Masks the line behind it */
+    padding: 0 10px;
+}
+
+/* 4. The Button */
+.venue-btn {
+    width: auto !important;
+    padding: 18px 45px !important;
+    font-size: 0.75rem !important;
+    border-radius: 50px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .venue-itinerary-split {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .itin-divider {
+        display: none;
+    }
+    .venue-content {
+        padding: 40px 20px;
+    }
+    .itin-time {
+        font-size: 2.8rem;
+    }
+}
+
+/* --- MOBILE NAV FORCE FIX --- */
+.mobile-nav {
+    position: fixed !important;
+    top: 30px !important;
+    right: 30px !important;
+    z-index: 99999 !important; /* Extremely high to stay above everything */
+    display: none; /* JS will turn this to block */
+}
+
+/* This class will be added by JS after clicking "Open Invitation" */
+.mobile-nav.show-it {
+    display: block !important;
+}
+
+.nav-toggle {
+    width: 50px;
+    height: 50px;
+    background: rgba(26, 28, 34, 0.6); /* Darker background to see on laptop */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+}
+
+.bar {
+    width: 22px;
+    height: 1.5px;
+    background-color: var(--gold);
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+/* Fullscreen Menu */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(26, 28, 34, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease;
+    z-index: -1;
+}
+
+.nav-overlay.open {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.nav-links { list-style: none; text-align: center; }
+.nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    text-decoration: none;
+    display: block;
+    margin: 20px 0;
+}
+
+
+/* --- QUICK NAVIGATION STYLES --- */
+.quick-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9998; /* High layer */
+    opacity: 0; /* Hidden until site opens */
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+/* Class added by JS after Open Invitation */
+.quick-nav.show-it {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Common FAB (Floating Action Button) Styling */
+.nav-fab, .rsvp-fab {
+    background: rgba(26, 28, 34, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/* Back to Top specific */
+.nav-fab {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    opacity: 0; /* Hidden until scroll */
+    transform: translateY(20px);
+}
+
+/* --- QUICK NAVIGATION STYLES --- */
+.quick-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 99999 !important; /* Force to the very top */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Disables clicks while hidden */
+    transition: all 0.8s ease;
+}
+
+.quick-nav.show-it {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important; /* Re-enables clicks when visible */
+}
+
+#backToTop {
+    width: 45px;
+    height: 45px;
+    opacity: 0; /* JS will change this to 1 */
+    visibility: hidden; /* JS will change this to visible */
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+}
+
+/* RSVP FAB specific */
+.rsvp-fab {
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.fab-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Hover Effects */
+.nav-fab:hover, .rsvp-fab:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .quick-nav {
+        bottom: 20px;
+        left: 20px;
+    }
+    .fab-text { display: none; } /* Hide text on mobile for cleaner look */
+    .rsvp-fab { width: 45px; height: 45px; padding: 0; }
+}
+
+/* --- ENCHANTED FIREFLY STYLES --- */
+#magic-dust-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 1; /* Sits behind text, above background images */
+    overflow: hidden;
+}
+
+.firefly {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(1px);
+    /* The glow effect */
+    box-shadow: 0 0 10px 2px rgba(249, 226, 149, 0.8), 
+                0 0 20px 5px rgba(228, 180, 180, 0.4);
+    animation: float-up var(--duration) linear infinite;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    50% {
+        /* Adds the "wobble" sway in the middle of the flight */
+        transform: translateY(50vh) translateX(var(--sway));
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 0;
+    }
+}
+
+/* --- UPDATED QUICK NAV FOR MOBILE --- */
+@media (max-width: 600px) {
+    .quick-nav {
+        bottom: 20px;
+        left: 20px;
+        gap: 10px; /* Closer together on mobile */
+    }
+
+    /* 1. Force the text to stay visible */
+    .fab-text { 
+        display: inline-block !important; 
+        font-size: 0.6rem; /* Slightly smaller so it fits well */
+        letter-spacing: 1px;
+    }
+
+    /* 2. Allow the button to be wide enough for the text */
+    .rsvp-fab { 
+        width: auto !important; /* Remove the circle constraint */
+        height: 40px !important; /* Slightly shorter for mobile */
+        padding: 0 15px !important; /* Add space on the sides of the text */
+        border-radius: 20px; /* Keep it pill-shaped */
+    }
+
+    /* 3. Scale the Back to Top button slightly smaller to match */
+    .nav-fab {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+
+/* --- COMPREHENSIVE MOBILE OPTIMIZATION (Fixes all sections) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Global Section Spacing */
+    section {
+        padding: 60px 15px !important; /* Reduces the huge laptop padding */
+    }
+
+    /* 2. Fix Oversized Script Headers */
+    .section-title-script, 
+    .role-header-script, 
+    .photo-style-names {
+        font-size: 2.8rem !important; /* Shrinks huge names to fit screen width */
+        line-height: 1.2;
+    }
+
+    /* 3. Story Section Fix */
+    .story {
+        padding: 80px 15px !important;
+    }
+    .script-quote.glow-text {
+        font-size: 2.2rem !important;
+    }
+    .refined-text {
+        font-size: 1.1rem !important;
+        line-height: 1.8;
+    }
+
+    /* 4. Entourage Section Fix (Stacking names) */
+    .parent-grid, .sponsors-grid, .row.trio {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    .v-divider {
+        display: none !important; /* Removes vertical lines that crush space */
+    }
+    .glass-glow {
+        padding: 40px 20px !important;
+        margin-bottom: 40px !important;
+    }
+    .script-name {
+        font-size: 2rem !important;
+    }
+
+    /* 5. Venue Section Fix */
+    .venue-visual {
+        height: 200px !important; /* Smaller image on mobile */
+    }
+    .venue-title-gold {
+        font-size: 1.6rem !important;
+    }
+    .venue-itinerary-split {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .itin-divider {
+        display: none !important;
+    }
+    .itin-time {
+        font-size: 2.5rem !important;
+    }
+
+    /* 6. Timeline Section Fix */
+    .timeline-container {
+        padding-left: 35px !important; /* Moves line closer to edge */
+        margin: 30px 0 !important;
+    }
+    .timeline-path {
+        left: 15px !important;
+    }
+    .timeline-dot {
+        left: -33px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    /* 7. Gallery Section Fix */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 photos per row instead of 3 */
+        gap: 10px !important;
+    }
+
+    /* 8. RSVP Form Fix */
+    .dark-glass {
+        padding: 40px 20px !important;
+    }
+    .section-title-script.gold-text {
+        font-size: 3rem !important;
+    }
+    .magical-form input, 
+    .magical-form select {
+        font-size: 1.1rem !important;
+    }
+
+    /* 9. Music & Nav Button scaling */
+    .music-control, .nav-toggle {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
+
+/* Extra Small Phones (iPhone SE etc) */
+@media (max-width: 380px) {
+    .gallery-grid {
+        grid-template-columns: 1fr !important; /* 1 photo per row on tiny phones */
+    }
+    .section-title-script {
+        font-size: 2.2rem !important;
+    }
+}
