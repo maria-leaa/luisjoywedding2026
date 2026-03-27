@@ -93,7 +93,7 @@ body {
     position: relative;
     /* Moody gradient overlay so the cockpit looks like it's at dusk/night */
     background: linear-gradient(rgba(17, 19, 23, 0.7), rgba(17, 19, 23, 0.85)), 
-                url('hero.jpg') no-repeat center center;
+                url('hero.JPG') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
