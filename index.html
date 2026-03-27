@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luis & Joy | The Enchanted Journey</title>
 
-    <!-- Google Fonts: Pinyon Script (Calligraphy), Cormorant Garamond (Serif), Montserrat (Sans) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Pinyon+Script&family=Montserrat:wght@200;400;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome for Airplane and Heart Icons -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luis & Joy | April 19, 2026</title>
+
+    <!-- ✨ Social Media Link Preview (Open Graph) ✨ -->
+    <!-- This is what shows up when you send the link on Messenger/Facebook -->
+    <meta property="og:title" content="The Wedding of Luis & Joy">
+    <meta property="og:description"
+        content="Taking off to forever. Join us as we celebrate our enchanted journey on April 19, 2026.">
+    <meta property="og:image" content="luisjoy.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luis-joy-wedding.vercel.app">
+    <!-- Replace with your actual live URL later -->
+
+    <!-- Twitter Link Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luis & Joy | April 19, 2026">
+    <meta name="twitter:description" content="You are invited to witness our enchanted wedding day.">
+    <meta name="twitter:image" content="luisjoy.png">
+
+    <!-- ✈️ Airplane Favicon (Browser Tab Icon) ✈️ -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+
+    <!-- Browser Theme Color (Matches your Gold theme on mobile) -->
+    <meta name="theme-color" content="#c5a059">
+
+    <!-- 🏰 Google Fonts 🏰 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Pinyon+Script&family=Montserrat:wght@200;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- 🎨 Stylesheets 🎨 -->
+    <!-- Font Awesome for Airplane/Heart Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Your main CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Preload Video Metadata to prevent RSVP lag -->
+    <link rel="preload" as="video" href="save_the_date.mp4">
 </head>
 
 <body>
@@ -526,18 +572,14 @@
             </div>
 
             <!-- 🎥 SAVE THE DATE VIDEO FEATURE 🎥 -->
+
             <div class="video-feature animate-up">
                 <div class="video-frame glass-glow">
-                    <!-- If the file is local (e.g., save-the-date.mp4) -->
-                    <video muted autoplay loop playsinlinecontrols poster="save-the-date.png" class="wedding-video">
-                        <source src="save_the_date.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-
-                    <!-- OR if the video is on YouTube, comment out the <video> above and use this: -->
-                    <!-- 
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> 
-            -->
+                    <!-- Cloudinary Embed with Mute and No Controls -->
+                    <iframe
+                        src="https://player.cloudinary.com/embed/?cloud_name=dtxbngnr7&public_id=save_the_date_luis_joy_vxtlli&autoplay=true&loop=true&muted=true&controls=false"
+                        class="wedding-video-iframe" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                        allowfullscreen frameborder="0"></iframe>
                 </div>
                 <p class="video-caption">OUR PRE-WEDDING FILM</p>
             </div>

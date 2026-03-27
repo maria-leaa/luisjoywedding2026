@@ -1579,56 +1579,33 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
         height: 32px;
     }
 }
-
-/* --- VIDEO FEATURE STYLES --- */
+/* --- CLOUDINARY VIDEO FIXES --- */
 .video-feature {
     max-width: 900px;
     margin: 0 auto 60px;
     padding: 0 20px;
-    text-align: center;
 }
 
-.video-frame {
-    position: relative;
-    padding: 15px !important; /* Spacing inside the glass frame */
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 20px 50px rgba(228, 180, 180, 0.2);
-}
-
-.wedding-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Aspect ratio fix for YouTube iframes if you use them */
-.video-frame iframe {
+.wedding-video-iframe {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 10px;
+    border-radius: 12px;
+    display: block;
+    background: #000;
+    
+    /* This makes the video purely decorative (uncallable/unpausable) */
+    pointer-events: none; 
 }
 
-.video-caption {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 5px;
-    color: var(--gold);
-    margin-top: 25px;
-    font-weight: 600;
-    opacity: 0.8;
+/* Ensure the glass-glow container fits the iframe perfectly */
+.video-frame.glass-glow {
+    padding: 12px !important;
+    line-height: 0; /* Removes extra spacing at the bottom */
 }
 
-/* Mobile responsive tweak */
 @media (max-width: 768px) {
     .video-feature {
         margin-bottom: 40px;
-    }
-    .video-frame {
-        padding: 10px !important;
     }
 }
 
@@ -2158,3 +2135,4 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
         font-size: 2.2rem !important;
     }
 }
+
