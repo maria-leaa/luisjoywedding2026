@@ -93,30 +93,37 @@
     <!-- ☁️ MAIN WEBSITE CONTENT ☁️ -->
     <div id="main-content" class="hidden">
 
-        <!-- ✨ MOBILE NAVIGATION ✨ -->
-        <nav class="mobile-nav">
-            <!-- Hamburger Button -->
-            <div class="nav-toggle" id="navToggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+        <!-- ✨ TOP NAVIGATION BAR ✨ -->
+        <nav class="mobile-nav" id="mainNav">
+            <div class="nav-container">
+                <!-- Logo / Initials on the Left -->
+                <div class="nav-branding">L <span class="amp">&</span> J</div>
 
-            <!-- Fullscreen Menu -->
-            <div class="nav-overlay" id="navOverlay">
-                <ul class="nav-links">
-                    <li><a href="#main-content">Home</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#locations">Venue</a></li>
-                    <li><a href="#timeline">Schedule</a></li>
-                    <li><a href="#entourage">Entourage</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#rsvp">RSVP</a></li>
-                </ul>
+                <!-- NEW POSITION: Move the overlay inside the container -->
+                <div class="nav-overlay" id="navOverlay">
+                    <ul class="nav-links">
+                        <li><a href="#main-content">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#locations">Venue</a></li>
+                        <li><a href="#timeline">Schedule</a></li>
+                        <li><a href="#entourage">Entourage</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#attire">Attire</a></li>
+                        <li><a href="#rsvp">RSVP</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hamburger Button on the Right (Hidden on Desktop) -->
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
         </nav>
+
         <!-- ✨ MAGICAL HERO SECTION ✨ -->
-        <header class="hero">
+        <header class="hero" id="main-content">
             <div class="hero-inner">
                 <p class="photo-style-label animate-up">THE CELEBRATION OF</p>
 
@@ -169,7 +176,7 @@
         </header>
 
         <!-- ✨ MAGICAL STORY SECTION (PREMIUM) ✨ -->
-        <section class="story">
+        <section class="story" id="story">
             <!-- Subtle Cloud/Mist Background for depth -->
             <div class="story-mist"></div>
 
@@ -251,7 +258,7 @@
 
 
         <!-- ✨ MAGICAL ENTOURAGE SECTION ✨ -->
-        <section class="entourage">
+        <section class="entourage" id="entourage">
             <div class="section-intro animate-up">
                 <div class="magic-sparkle-icon">✨</div>
                 <h3 class="section-title-script">The Entourage</h3>
@@ -388,7 +395,7 @@
 
 
         <!-- ✨ THE ENCHANTED DESTINATION SECTION ✨ -->
-        <section class="locations">
+        <section class="locations" id="locations">
             <div class="section-intro animate-up">
                 <div class="magic-sparkle-icon">✨</div>
                 <h3 class="section-title-script">The Destination</h3>
@@ -440,7 +447,7 @@
         </section>
 
         <!-- ✨ MAGICAL TIMELINE SECTION ✨ -->
-        <section class="timeline">
+        <section class="timeline" id="timeline">
             <div class="section-intro animate-up">
                 <div class="magic-sparkle-icon">✨</div>
                 <h3 class="section-title-script">The Flight Schedule</h3>
@@ -552,7 +559,7 @@
         </section>
 
         <!-- ✨ MAGICAL GALLERY SECTION ✨ -->
-        <section class="gallery">
+        <section class="gallery" id="gallery">
             <div class="section-intro">
                 <div class="magic-sparkle-icon">✨</div>
                 <h3 class="section-title-script">Our Journey</h3>
@@ -655,7 +662,7 @@
         </section> -->
 
         <!-- ✨ MAGICAL ATTIRE SECTION ✨ -->
-        <section class="attire">
+        <section class="attire" id="attire">
             <div class="section-intro">
                 <div class="magic-sparkle-icon">✨</div>
                 <h3 class="section-title-script">Wedding Attire</h3>
@@ -716,7 +723,7 @@
 
 
         <!-- ✨ MAGICAL GIFT GUIDE SECTION ✨ -->
-        <section class="gift-guide">
+        <section class="gift-guide" id="gift-guide">
             <div class="section-intro">
                 <div class="magic-sparkle-icon animate-up">✨</div>
                 <h3 class="section-title-script">Gifts of Love</h3>
@@ -808,7 +815,7 @@
                 <form id="rsvpForm" class="magical-form light-labels">
                     <div class="input-group">
                         <label for="name">FULL NAME</label>
-                        <input type="text" id="name" name="name" placeholder="As written on your invitation" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name here..." required>
                         <div class="input-glow-line"></div>
                     </div>
 
