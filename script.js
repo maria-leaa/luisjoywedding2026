@@ -187,52 +187,110 @@ window.addEventListener('scroll', handleScroll);
 
 
 // 4. ✨ NAVIGATION LOGIC (OPEN INVITATION) ✨
+// if (openBtn) {
+//     openBtn.addEventListener('click', () => {
+//         createEnchantedDust();
+
+//         //const qNav = document.getElementById('quickNav');
+//         const mobileNav = document.querySelector('.mobile-nav');
+//         if (mobileNav) {
+//             mobileNav.classList.add('show-it');
+//         }
+
+//         if (mobileNav) quickNav.classList.add('show-it');
+//         // 1. Handle Music
+//         if (audio) {
+//             audio.play()
+//                 .then(() => console.log("Audio playing"))
+//                 .catch(err => console.log("Playback blocked:", err));
+//         }
+        
+//         const mainNav = document.getElementById('mainNav');
+//         if (mainNav) {
+//             mainNav.classList.add('show-it');
+//         }
+//         // 2. Show Music Toggle IMMEDIATELY
+//         if (musicToggle) {
+//             musicToggle.classList.add('show-it'); // This matches the CSS above
+//         }
+
+//         // 3. Start Transition
+//         overlay.style.opacity = '0';
+//         overlay.style.pointerEvents = 'none'; // Makes overlay "clickable-through" immediately
+        
+//         setTimeout(() => {
+//             overlay.style.display = 'none';
+//             mainContent.classList.remove('hidden');
+//             mainContent.style.display = 'block';
+            
+//             setTimeout(() => {
+//                 mainContent.style.opacity = '1';
+//                 const anims = document.querySelectorAll('.animate-up');
+//                 anims.forEach((el, i) => {
+//                     setTimeout(() => el.classList.add('reveal'), 300 * i);
+//                 });
+//             }, 100);
+//         }, 1500);
+//     });
+// }
+
+// 4. ✨ NAVIGATION LOGIC (OPEN INVITATION) ✨
 if (openBtn) {
     openBtn.addEventListener('click', () => {
+        // Start the magical firefly background
         createEnchantedDust();
 
-        const qNav = document.getElementById('quickNav');
-        if (qNav) {
-            qNav.classList.add('show-it');
+        // 1. Show the Hamburger Menu (Mobile Navigation)
+        const mobileNav = document.querySelector('.mobile-nav');
+        if (mobileNav) {
+            mobileNav.classList.add('show-it');
         }
 
-        if (quickNav) quickNav.classList.add('show-it');
-        // 1. Handle Music
+        // 2. Show the Quick Nav (Bottom RSVP & Back to Top buttons)
+        if (quickNav) {
+            quickNav.classList.add('show-it');
+        }
+
+        // 3. Show the Floating Music Toggle button
+        if (musicToggle) {
+            musicToggle.classList.add('show-it');
+        }
+
+        // 4. Handle Music Playback
         if (audio) {
             audio.play()
                 .then(() => console.log("Audio playing"))
-                .catch(err => console.log("Playback blocked:", err));
-        }
-        
-        const mainNav = document.getElementById('mainNav');
-        if (mainNav) {
-            mainNav.classList.add('show-it');
-        }
-        // 2. Show Music Toggle IMMEDIATELY
-        if (musicToggle) {
-            musicToggle.classList.add('show-it'); // This matches the CSS above
+                .catch(err => console.log("Playback blocked by browser:", err));
         }
 
-        // 3. Start Transition
+        // 5. Start the Entrance Screen Transition
         overlay.style.opacity = '0';
-        overlay.style.pointerEvents = 'none'; // Makes overlay "clickable-through" immediately
-        
+        overlay.style.transition = 'opacity 1.5s ease';
+        overlay.style.pointerEvents = 'none'; // Allows clicking through immediately
+
+        // 6. Reveal the Main Website Content
         setTimeout(() => {
             overlay.style.display = 'none';
-            mainContent.classList.remove('hidden');
-            mainContent.style.display = 'block';
             
-            setTimeout(() => {
-                mainContent.style.opacity = '1';
-                const anims = document.querySelectorAll('.animate-up');
-                anims.forEach((el, i) => {
-                    setTimeout(() => el.classList.add('reveal'), 300 * i);
-                });
-            }, 100);
+            if (mainContent) {
+                mainContent.classList.remove('hidden');
+                mainContent.style.display = 'block';
+                
+                // Small delay to ensure display:block has rendered before fading in
+                setTimeout(() => {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transition = 'opacity 1s ease';
+                    
+                    // Trigger "Animate Up" for all sections
+                    const anims = document.querySelectorAll('.animate-up');
+                    anims.forEach((el, i) => {
+                        setTimeout(() => el.classList.add('reveal'), 200 * i);
+                    });
+                }, 50);
+            }
         }, 1500);
     });
 }
-
 // 2. Scroll Logic for "Back to Top" Button
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 400) {

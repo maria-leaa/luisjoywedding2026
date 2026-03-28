@@ -1630,7 +1630,7 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     display: inline-block;
 }
 
-/* Mobile Adjustments */
+/* Mobile Adjustments
 @media (max-width: 768px) {
     .timeline-container {
         max-width: 90%;
@@ -1640,6 +1640,64 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
         left: -42px;
         width: 32px;
         height: 32px;
+    }
+} */
+
+/* --- MOBILE SCHEDULE (TIMELINE) OPTIMIZATION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink the massive "The Flight Schedule" title */
+    .timeline .section-title-script {
+        font-size: 2.2rem !important; /* Significant reduction */
+        margin-bottom: 5px !important;
+    }
+
+    .timeline .section-subtitle {
+        font-size: 0.6rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* 2. Tighten the timeline container */
+    .timeline-container {
+        padding-left: 30px !important; /* Move cards closer to the dashed line */
+        margin: 20px auto !important;
+    }
+
+    /* 3. Scale down the Plane/Heart icons */
+    .timeline-dot {
+        left: -32px !important; /* Adjust based on new padding */
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* 4. Make the cards much smaller and cleaner */
+    .timeline-content {
+        padding: 15px 20px !important; /* Reduced from 30px-50px */
+        margin-bottom: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .time-tag {
+        font-size: 0.6rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .event-title {
+        font-size: 1.2rem !important; /* Shrinks the italic title */
+        margin-bottom: 4px !important;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem !important; /* Small, readable description */
+        line-height: 1.4 !important;
+        opacity: 0.8;
+    }
+
+    /* 5. Add space at the very bottom so buttons don't block the last item */
+    .timeline {
+        padding-bottom: 80px !important;
     }
 }
 /* --- CLOUDINARY VIDEO FIXES --- */
@@ -1903,6 +1961,68 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     margin: 20px 0;
 }
 
+
+/* --- HAMBURGER MENU CONTROL --- */
+
+/* 1. Hide it by default on ALL screens (Desktop/Web) */
+.mobile-nav {
+    display: none !important; 
+}
+
+/* 2. Show it ONLY on small screens (Mobile/Tablets) 
+      AND only after the "Open Invitation" button is clicked */
+@media (max-width: 991px) {
+    .mobile-nav.show-it {
+        display: block !important;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+    }
+
+    .nav-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(26, 28, 34, 0.8);
+        border: 1px solid var(--gold);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .bar {
+        width: 20px;
+        height: 2px;
+        background-color: var(--gold);
+        margin: 3px 0;
+        transition: 0.4s;
+    }
+}
+
+/* 3. Fullscreen Overlay Styling (Ensure this is also inside/handled correctly) */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 28, 34, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
 
 /* --- QUICK NAVIGATION STYLES --- */
 .quick-nav {
@@ -2267,4 +2387,246 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
 .cta-wrapper {
     opacity: 0;
     animation: fadeInUpOverlay 1s ease-out forwards 2.3s;
+}
+
+@media (max-width: 768px) {
+    /* Prevents the location card from becoming too long */
+    .venue-content {
+        padding: 30px 15px !important;
+    }
+
+    .venue-title-gold {
+        font-size: 1.5rem !important; /* Slightly smaller to fit one line */
+    }
+
+    /* FORCES Ceremony and Reception to stay side-by-side like Web */
+    .venue-itinerary-split {
+        flex-direction: row !important; 
+        justify-content: space-around !important;
+        gap: 10px !important;
+        display: flex !important;
+    }
+
+    .itin-time {
+        font-size: 1.8rem !important; /* Shrinks the 4:00 and 6:00 to fit */
+    }
+
+    .itin-ampm {
+        font-size: 0.8rem !important;
+    }
+
+    /* Keeps the little plane divider visible but smaller */
+    .itin-divider {
+        display: block !important;
+        width: 40px !important;
+    }
+    
+    .itin-plane {
+        font-size: 0.6rem !important;
+        padding: 0 5px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-minimal {
+        padding: 40px 20px 100px !important; /* Extra bottom padding so buttons don't cover text */
+    }
+
+    .footer-tagline {
+        font-size: 0.6rem !important;
+        letter-spacing: 3px !important;
+    }
+
+    .footer-names {
+        font-size: 1.2rem !important;
+    }
+
+    .amp-pink {
+        font-size: 1.5rem !important;
+    }
+
+    .footer-divider .f-line {
+        width: 40px !important;
+    }
+}
+
+/* --- MOBILE ATTIRE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink the main Attire Title */
+    .attire .section-title-script {
+        font-size: 2.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 2. Tighten the glass container */
+    .attire-container {
+        padding: 30px 20px !important; /* Reduced from 70px */
+        margin-top: 20px !important;
+        border-radius: 20px !important;
+    }
+
+    /* 3. Shrink description text */
+    .attire-description {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        margin: 15px 0 25px !important;
+    }
+
+    .highlight-script {
+        font-size: 1.8rem !important; /* Shrinks the "Wedding Palette" text */
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    /* 4. Fix the Color Palette Grid (3 columns instead of wrapping randomly) */
+    .palette-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .palette-item .swatch {
+        width: 40px !important; /* Smaller circles */
+        height: 40px !important;
+    }
+
+    .palette-item span {
+        font-size: 0.5rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* 5. Compact the Ninong/Ninang Requirements */
+    .specific-attire-box {
+        flex-direction: row !important; /* Keep them side-by-side but smaller */
+        gap: 10px !important;
+        padding-top: 25px !important;
+        margin-top: 0 !important;
+    }
+
+    .attire-role {
+        font-size: 0.65rem !important; /* Tiny labels */
+        letter-spacing: 2px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .attire-detail {
+        font-size: 1rem !important; /* Readable but small */
+    }
+
+    .attire-divider {
+        height: 40px !important; /* Shorter gold line */
+    }
+}
+
+/* --- MOBILE GIFT GUIDE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink "Gifts of Love" Title */
+    .gift-guide .section-title-script {
+        font-size: 2.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 2. Tighten the Gift Container */
+    .gift-container {
+        padding: 30px 20px !important; /* Reduced from 70px */
+        margin-top: 20px !important;
+    }
+
+    .gift-message .refined-text {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* 3. Scale down the QR Codes */
+    .qr-grid {
+        gap: 20px !important; /* Move QRs closer together */
+        margin-bottom: 30px !important;
+    }
+
+    .qr-item {
+        min-width: 140px !important; /* Allow them to sit side-by-side if screen is wide enough */
+        max-width: 160px !important;
+    }
+
+    .qr-frame {
+        padding: 10px !important;
+        border-radius: 15px !important;
+    }
+
+    .qr-image {
+        max-width: 120px !important;
+    }
+
+    .account-service {
+        font-size: 0.45rem !important;
+        letter-spacing: 2px !important;
+    }
+}
+
+/* --- MOBILE RSVP (BOARDING CALL) OPTIMIZATION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink the massive "Final Boarding Call" Title */
+    .rsvp .section-title-script.gold-text {
+        font-size: 2.5rem !important; /* Massive reduction from 5rem */
+        margin-bottom: 5px !important;
+    }
+
+    .rsvp .section-subtitle.white-text {
+        font-size: 0.65rem !important;
+        letter-spacing: 2px !important;
+        line-height: 1.4;
+    }
+
+    /* 2. Tighten the Dark Glass Card */
+    .dark-glass {
+        padding: 35px 20px !important; /* Reduced from 80px */
+        margin-top: 25px !important;
+        border-radius: 25px !important;
+    }
+
+    /* 3. Boarding Pass Header elements */
+    .boarding-label {
+        font-size: 0.6rem !important;
+        letter-spacing: 3px !important;
+    }
+
+    .rsvp-message {
+        font-size: 1.1rem !important; /* Much cleaner font size */
+        margin: 20px 0 30px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 4. Form Field spacing */
+    .input-group {
+        margin-bottom: 25px !important;
+    }
+
+    .input-group label {
+        font-size: 0.65rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .magical-form input, 
+    .magical-form select {
+        font-size: 1.1rem !important;
+        padding: 10px 0 !important;
+    }
+
+    /* 5. Button size */
+    .gold-pulse-btn {
+        padding: 18px !important; /* Slimmer button */
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-top: 10px !important;
+    }
+
+    /* 6. Footer Divider in RSVP */
+    .flight-divider.small {
+        margin-top: 30px !important;
+    }
 }
