@@ -235,59 +235,100 @@ window.addEventListener('scroll', handleScroll);
 // }
 
 // 4. ✨ NAVIGATION LOGIC (OPEN INVITATION) ✨
+// if (openBtn) {
+//     openBtn.addEventListener('click', () => {
+//         // Start the magical firefly background
+//         createEnchantedDust();
+
+//         // 1. Show the Hamburger Menu (Mobile Navigation)
+//         const mobileNav = document.querySelector('.mobile-nav');
+//         if (mobileNav) {
+//             mobileNav.classList.add('show-it');
+//         }
+
+//         // 2. Show the Quick Nav (Bottom RSVP & Back to Top buttons)
+//         if (quickNav) {
+//             quickNav.classList.add('show-it');
+//         }
+
+//         // 3. Show the Floating Music Toggle button
+//         if (musicToggle) {
+//             musicToggle.classList.add('show-it');
+//         }
+
+//         // 4. Handle Music Playback
+//         if (audio) {
+//             audio.play()
+//                 .then(() => console.log("Audio playing"))
+//                 .catch(err => console.log("Playback blocked by browser:", err));
+//         }
+
+//         // 5. Start the Entrance Screen Transition
+//         overlay.style.opacity = '0';
+//         overlay.style.transition = 'opacity 1.5s ease';
+//         overlay.style.pointerEvents = 'none'; // Allows clicking through immediately
+
+//         // 6. Reveal the Main Website Content
+//         setTimeout(() => {
+//             overlay.style.display = 'none';
+            
+//             if (mainContent) {
+//                 mainContent.classList.remove('hidden');
+//                 mainContent.style.display = 'block';
+                
+//                 // Small delay to ensure display:block has rendered before fading in
+//                 setTimeout(() => {
+//                     mainContent.style.opacity = '1';
+//                     mainContent.style.transition = 'opacity 1s ease';
+                    
+//                     // Trigger "Animate Up" for all sections
+//                     const anims = document.querySelectorAll('.animate-up');
+//                     anims.forEach((el, i) => {
+//                         setTimeout(() => el.classList.add('reveal'), 200 * i);
+//                     });
+//                 }, 50);
+//             }
+//         }, 1500);
+//     });
+// }
+
+// 4. ✨ NAVIGATION LOGIC (OPEN INVITATION) ✨
 if (openBtn) {
     openBtn.addEventListener('click', () => {
-        // Start the magical firefly background
+        // Start fireflies
         createEnchantedDust();
 
-        // 1. Show the Hamburger Menu (Mobile Navigation)
+        // Show UI Elements
         const mobileNav = document.querySelector('.mobile-nav');
-        if (mobileNav) {
-            mobileNav.classList.add('show-it');
-        }
+        const qNav = document.getElementById('quickNav');
+        const musicBtn = document.getElementById('musicToggle');
 
-        // 2. Show the Quick Nav (Bottom RSVP & Back to Top buttons)
-        if (quickNav) {
-            quickNav.classList.add('show-it');
-        }
+        if (mobileNav) mobileNav.classList.add('show-it');
+        if (qNav) qNav.classList.add('show-it');
+        if (musicBtn) musicBtn.classList.add('show-it');
 
-        // 3. Show the Floating Music Toggle button
-        if (musicToggle) {
-            musicToggle.classList.add('show-it');
-        }
-
-        // 4. Handle Music Playback
+        // Handle Music
         if (audio) {
-            audio.play()
-                .then(() => console.log("Audio playing"))
-                .catch(err => console.log("Playback blocked by browser:", err));
+            audio.play().catch(err => console.log("Music blocked:", err));
         }
 
-        // 5. Start the Entrance Screen Transition
+        // Start Transition
         overlay.style.opacity = '0';
-        overlay.style.transition = 'opacity 1.5s ease';
-        overlay.style.pointerEvents = 'none'; // Allows clicking through immediately
-
-        // 6. Reveal the Main Website Content
+        overlay.style.pointerEvents = 'none';
+        
         setTimeout(() => {
             overlay.style.display = 'none';
+            mainContent.classList.remove('hidden');
+            mainContent.style.display = 'block';
             
-            if (mainContent) {
-                mainContent.classList.remove('hidden');
-                mainContent.style.display = 'block';
-                
-                // Small delay to ensure display:block has rendered before fading in
-                setTimeout(() => {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.transition = 'opacity 1s ease';
-                    
-                    // Trigger "Animate Up" for all sections
-                    const anims = document.querySelectorAll('.animate-up');
-                    anims.forEach((el, i) => {
-                        setTimeout(() => el.classList.add('reveal'), 200 * i);
-                    });
-                }, 50);
-            }
+            setTimeout(() => {
+                mainContent.style.opacity = '1';
+                // Trigger animations
+                const anims = document.querySelectorAll('.animate-up');
+                anims.forEach((el, i) => {
+                    setTimeout(() => el.classList.add('reveal'), 150 * i);
+                });
+            }, 100);
         }, 1500);
     });
 }

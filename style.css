@@ -1892,23 +1892,23 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
 }
 
 /* --- MOBILE NAV FORCE FIX --- */
-.mobile-nav {
+/* .mobile-nav {
     position: fixed !important;
     top: 30px !important;
     right: 30px !important;
-    z-index: 99999 !important; /* Extremely high to stay above everything */
-    display: none; /* JS will turn this to block */
-}
+    z-index: 99999 !important; 
+    display: none; 
+} */
 
 /* This class will be added by JS after clicking "Open Invitation" */
-.mobile-nav.show-it {
+/* .mobile-nav.show-it {
     display: block !important;
 }
 
 .nav-toggle {
     width: 50px;
     height: 50px;
-    background: rgba(26, 28, 34, 0.6); /* Darker background to see on laptop */
+    background: rgba(26, 28, 34, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--gold);
@@ -1927,10 +1927,10 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     background-color: var(--gold);
     margin: 3px 0;
     transition: 0.4s;
-}
+} */
 
 /* Fullscreen Menu */
-.nav-overlay {
+/* .nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -1944,9 +1944,9 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     opacity: 0;
     transition: 0.5s ease;
     z-index: -1;
-}
+} */
 
-.nav-overlay.open {
+/* .nav-overlay.open {
     visibility: visible !important;
     opacity: 1 !important;
 }
@@ -1959,19 +1959,19 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     text-decoration: none;
     display: block;
     margin: 20px 0;
-}
+} */
 
 
 /* --- HAMBURGER MENU CONTROL --- */
 
 /* 1. Hide it by default on ALL screens (Desktop/Web) */
-.mobile-nav {
+/* .mobile-nav {
     display: none !important; 
-}
+} */
 
 /* 2. Show it ONLY on small screens (Mobile/Tablets) 
       AND only after the "Open Invitation" button is clicked */
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .mobile-nav.show-it {
         display: block !important;
         position: fixed;
@@ -2000,10 +2000,10 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
         margin: 3px 0;
         transition: 0.4s;
     }
-}
+} */
 
 /* 3. Fullscreen Overlay Styling (Ensure this is also inside/handled correctly) */
-.nav-overlay {
+/* .nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -2017,7 +2017,7 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
-}
+} */
 
 .nav-overlay.open {
     opacity: 1;
@@ -2499,24 +2499,31 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
 
     /* 5. Compact the Ninong/Ninang Requirements */
     .specific-attire-box {
-        flex-direction: row !important; /* Keep them side-by-side but smaller */
-        gap: 10px !important;
-        padding-top: 25px !important;
-        margin-top: 0 !important;
+        flex-direction: column !important; /* Stack them for better spacing */
+        gap: 20px !important;
+        padding-top: 30px !important;
+        border-top: 1px solid rgba(197, 160, 89, 0.15); /* Soft gold border */
     }
 
     .attire-role {
-        font-size: 0.65rem !important; /* Tiny labels */
-        letter-spacing: 2px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 3px !important;
         margin-bottom: 5px !important;
+        color: var(--gold);
     }
 
     .attire-detail {
-        font-size: 1rem !important; /* Readable but small */
+        font-size: 1.1rem !important; /* Make the description slightly larger */
+        font-family: 'Cormorant Garamond', serif !important;
+        font-style: italic !important;
     }
 
     .attire-divider {
-        height: 40px !important; /* Shorter gold line */
+        width: 40px !important; /* Small width */
+        height: 1px !important; /* Thin line */
+        background: linear-gradient(to right, transparent, var(--gold), transparent) !important;
+        margin: 0 auto !important; /* Center it */
+        position: relative;
     }
 }
 
@@ -2630,3 +2637,392 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
         margin-top: 30px !important;
     }
 }
+
+/* --- MOBILE REFINEMENT FOR STORY & REMINDERS --- */
+@media (max-width: 768px) {
+    
+    /* 1. Global Section Tightening */
+    .story, .reminders {
+        padding: 60px 15px !important; /* Reduced from 140px/160px */
+    }
+
+    /* 2. OUR STORY SECTION FIXES */
+    .story-intro {
+        font-size: 0.65rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* The "Our greatest adventure..." text */
+    .script-quote.glow-text {
+        font-size: 2.2rem !important; /* Reduced from 4rem */
+        line-height: 1.2 !important;
+    }
+
+    /* The "Join us as we exchange vows..." text */
+    .story .refined-text {
+        font-size: 1.1rem !important; /* Smaller, more readable body size */
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+    }
+
+    /* Shrink the horizontal lines next to the quote */
+    .quote-line {
+        width: 30px !important;
+    }
+
+    .magic-sparkle-icon {
+        font-size: 1.4rem !important;
+        margin-bottom: 20px !important;
+    }
+
+
+    /* 3. GENTLE REMINDERS SECTION FIXES */
+    .reminders .section-title-script {
+        font-size: 2.5rem !important; /* Shrinks the "Gentle Reminders" header */
+    }
+
+    .reminders .section-subtitle {
+        font-size: 0.6rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* Shrink the Glass Cards */
+    .frosted-glass {
+        padding: 35px 20px !important; /* Reduced from 70px */
+        min-width: 100% !important;
+        border-radius: 20px !important;
+    }
+
+    .reminders-container {
+        gap: 20px !important; /* Space between cards */
+        margin-top: 20px !important;
+    }
+
+    /* Card Icons (🕰️ and 💌) */
+    .reminder-icon {
+        font-size: 2.2rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Card Titles (Arrival, Guest List) */
+    .reminder-title {
+        font-size: 0.75rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Card Body Text */
+    .reminder-text {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .reminder-note, .italic-sub {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Gold Highlight text inside cards */
+    .gold-highlight {
+        font-weight: 600 !important;
+    }
+
+    /* The little divider inside cards */
+    .mini-divider {
+        margin: 5px 0 15px !important;
+    }
+}
+
+/* Extra Small Phones (iPhone SE / 320px screens) */
+@media (max-width: 380px) {
+    .script-quote.glow-text {
+        font-size: 1.8rem !important;
+    }
+    .reminder-text {
+        font-size: 0.95rem !important;
+    }
+}
+
+
+/* --- HAMBURGER TO "X" ANIMATION --- */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* --- FORCE TOGGLE ABOVE OVERLAY --- */
+.mobile-nav {
+    z-index: 10001 !important; /* Higher than overlay */
+}
+
+.nav-toggle {
+    z-index: 10002 !important; /* Highest point */
+    position: relative;
+}
+
+.nav-overlay {
+    z-index: 10000 !important; /* Just below the toggle button */
+}
+
+/* --- QUICK NAV VISIBILITY FIX --- */
+.quick-nav {
+    display: flex !important; /* Ensure it's not display:none */
+    visibility: hidden; /* Start hidden */
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.quick-nav.show-it {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* --- MINIMALIST TOP NAV --- */
+.mobile-nav {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 10001 !important;
+    display: none; /* Controlled by JS show-it class */
+}
+
+/* The Toggle Button - Removed heavy background/borders */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Aligns bars to the right */
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+/* The bars - Thin and Gold */
+.bar {
+    width: 28px;
+    height: 1px; /* Very thin for elegance */
+    background-color: #c5a059; /* Gold */
+    margin: 4px 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Middle bar is shorter for a "stylized" look */
+.bar:nth-child(2) {
+    width: 18px;
+}
+
+/* --- ANIMATION TO "X" --- */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    width: 28px;
+}
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    width: 28px;
+}
+
+/* --- THE MENU OVERLAY DESIGN --- */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(17, 19, 23, 0.98); /* Deep moody background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 10000;
+}
+
+.nav-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-links {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-links li {
+    margin: 25px 0;
+    overflow: hidden;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c5a059;
+    text-decoration: none;
+    display: block;
+    transition: 0.4s;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    letter-spacing: 8px; /* Gently expands on hover */
+    color: #f9e295;
+}
+
+/* Mobile Tweak: Ensure it stays at the top on small screens */
+@media (max-width: 768px) {
+    .mobile-nav {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* --- MOBILE ENTOURAGE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink Section Headers */
+    .entourage .section-title-script {
+        font-size: 2.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 2. Tighten the Glass Blocks */
+    .entourage-block.glass-glow {
+        padding: 30px 20px !important; /* Reduced from 50px */
+        margin-bottom: 30px !important; /* Less gap between blocks */
+        width: 100% !important;
+    }
+
+    /* 3. Beloved Parents: Stack Groom & Bride Sides */
+    .parent-grid {
+        flex-direction: column !important;
+        gap: 25px !important;
+    }
+
+    .v-divider {
+        display: none !important; /* Remove vertical lines */
+    }
+
+    .family-side .name {
+        font-size: 1.1rem !important; /* Smaller parent names */
+        margin: 5px 0 !important;
+    }
+
+    /* 4. Principal Sponsors: Stack Ninongs & Ninangs */
+    .sponsors-grid {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .name-list-elegant {
+        font-size: 1.05rem !important; /* Smaller sponsor names */
+        line-height: 2 !important; /* Tighter list */
+    }
+
+    .label-pink {
+        font-size: 0.65rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. Best Man / Maid of Honor Trio: Stack vertically */
+    .row.trio {
+        flex-direction: column !important;
+        gap: 25px !important;
+    }
+
+    .script-name {
+        font-size: 1.8rem !important; /* Reduced script size for names */
+        margin-top: 5px !important;
+    }
+
+    /* 6. Secondary Sponsors (Candle, Cord, Veil): Keep side-by-side if possible, else stack */
+    .secondary-sponsors .trio {
+        gap: 30px !important;
+    }
+
+    .secondary-sponsors .name {
+        font-size: 1.05rem !important;
+    }
+
+    /* 7. Groomsmen & Bridesmaids Party lists */
+    .side-by-side .row {
+        flex-direction: column !important;
+        gap: 35px !important;
+    }
+
+    .role-header-small {
+        font-size: 1.3rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .party-list {
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+    }
+
+    /* Small decorative divider at the bottom of the section */
+    .entourage .photo-divider {
+        margin-top: 40px !important;
+    }
+}
+
+/* Extra Small Phones Fix */
+@media (max-width: 380px) {
+    .script-name {
+        font-size: 1.6rem !important;
+    }
+    .name-list-elegant {
+        font-size: 0.95rem !important;
+    }
+}
+
+/* Refined Gift Message for Mobile */
+    .gift-message .photo-style-label {
+        font-size: 0.6rem !important;
+        letter-spacing: 4px !important;
+        opacity: 0.8;
+    }
+
+    .gift-message .refined-text {
+        font-size: 1.1rem !important; /* Slightly larger for elegance */
+        line-height: 1.7 !important;
+        padding: 0 10px;
+        color: var(--slate-medium);
+    }
+
+    /* Shrink the script font inside the message so it fits one line */
+    .gift-message .highlight-script {
+        font-size: 1.6rem !important;
+        display: block;
+        margin: 10px 0 !important;
+    }
+
+    /* Fix the QR items display */
+    .qr-grid {
+        margin-top: 40px !important;
+        gap: 30px !important;
+    }
+
+    .qr-frame {
+        border-radius: 12px !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.03) !important;
+    }
