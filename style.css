@@ -31,10 +31,12 @@ body {
 #diamondDust { position: absolute; width: 100%; height: 100%; }
 
 .invitation-wrap {
-    position: relative;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 90%;
-    max-width: 800px;
+    max-width: 600px; /* Keeps it from getting too wide on Web */
     z-index: 10;
 }
 
@@ -62,7 +64,7 @@ body {
 }
 
 .photo-style-names .amp {
-    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Cormorant Garamond', serif; */
     color: var(--dusty-rose);
     font-size: 3.5rem;
     margin: 0 20px;
@@ -77,7 +79,7 @@ body {
     margin-top: 20px;
 }
 
-.photo-divider { display: flex; flex-direction: column; align-items: center; margin: 60px 0; }
+.photo-divider { display: flex; flex-direction: column; align-items: center; margin: 30px 0; }
 .v-line { width: 1px; height: 70px; background: linear-gradient(to bottom, transparent, var(--gold)); }
 .diamond { width: 6px; height: 6px; background: var(--dusty-rose); transform: rotate(45deg); box-shadow: 0 0 10px var(--dusty-rose); }
 
@@ -116,7 +118,7 @@ body {
 
 .display-names .amp {
     color: var(--dusty-rose);
-    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Cormorant Garamond', serif; */
     font-size: 3rem;
     margin: 0 10px;
 }
@@ -222,6 +224,18 @@ body {
 /* --- IMPROVED MOBILE RESPONSIVENESS --- */
 
 @media (max-width: 768px) {
+
+    .hero {
+        /* Mobile browsers hate 'fixed'. Changing to 'scroll' fixes the zoom. */
+        background-attachment: scroll !important;
+        
+        /* Adjust positioning to ensure the couple's faces are centered */
+        background-position: center center;
+        
+        /* Use dvh (dynamic viewport height) if supported for a better fit */
+        height: 100dvh; 
+    }
+
     /* Make the Names much larger on mobile */
     .display-names {
         font-size: 5.5rem; /* Increased size */
@@ -467,9 +481,15 @@ body {
     text-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
 }
 
-.v-line.short {
+/* .v-line.short {
     height: 50px;
     background: linear-gradient(to bottom, var(--gold), transparent);
+} */
+
+.v-line {
+    width: 1px;
+    height: 50px; /* Slightly shorter for a cleaner look */
+    background: linear-gradient(to bottom, transparent, var(--gold));
 }
 
 /* Mobile Adjustments */
@@ -643,13 +663,56 @@ ul.name-list { list-style: none; line-height: 2.2; }
 .animate-up { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
 .reveal { opacity: 1; transform: translateY(0); }
 
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-.minimal-plane { animation: float 4s ease-in-out infinite; }
+/* @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.minimal-plane { animation: float 4s ease-in-out infinite; } */
 
 footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; }
 
 @media (max-width: 768px) {
-    .photo-style-names { font-size: 4rem; }
+    .photo-style-label {
+        font-size: 1.1rem !important;      /* Increased from 0.85rem */
+        letter-spacing: 5px !important;    /* Reduced spacing so it's readable */
+        font-weight: 600 !important;       /* Slightly bolder for visibility */
+        margin-bottom: 20px !important;    /* Adjust gap */
+        display: block;
+    }
+
+    /* 2. Adjust "to the wedding of" */
+    .photo-style-sub {
+        font-size: 1.6rem !important; 
+        margin-bottom: 10px !important;
+    }
+
+    /* 3. Ensure the names don't shrink too much */
+    .photo-style-names {
+        font-size: 4rem !important;
+        line-height: 1.1;
+    }
+
+    /* 4. Fix the bottom tagline visibility */
+    .minimal-tagline {
+        font-size: 0.7rem !important;     /* Slightly larger */
+        letter-spacing: 4px !important;    /* Tighter spacing */
+        margin-top: 15px !important;
+        opacity: 0.9;
+    }
+
+    /* 5. Center the button specifically for small screens */
+    .cta-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+    }
+    
+    .ghost-gold-btn {
+        padding: 18px 40px !important;
+        width: 100%;             /* Makes button easy to tap on mobile */
+        max-width: 280px;
+        font-size: 0.7rem !important;
+        letter-spacing: 3px !important;
+    }
+
     .display-names { font-size: 3.5rem; }
     .columns-2 { column-count: 1; text-align: center; }
 }
@@ -1714,7 +1777,7 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
 }
 
 .itin-ampm {
-    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Cormorant Garamond', serif; */
     font-size: 1.2rem;
     font-style: italic;
     vertical-align: middle;
@@ -2136,3 +2199,72 @@ footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem; let
     }
 }
 
+
+/* --- ENTRANCE ANIMATIONS --- */
+
+@keyframes fadeInUpOverlay {
+    0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes lineGrowVertical {
+    0% { height: 0; opacity: 0; }
+    100% { height: 50px; opacity: 1; }
+}
+
+@keyframes planeEntrance {
+    0% { opacity: 0; transform: translateY(-30px) rotate(-10deg); }
+    100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Apply animations with staggered delays */
+
+/* 1. The Plane Icon */
+.minimal-plane {
+    animation: planeEntrance 1.5s ease-out forwards;
+}
+
+/* 2. YOU'RE INVITED */
+.photo-style-label {
+    opacity: 0;
+    animation: fadeInUpOverlay 1s ease-out forwards 0.4s;
+}
+
+/* 3. to the wedding of */
+.photo-style-sub {
+    opacity: 0;
+    animation: fadeInUpOverlay 1s ease-out forwards 0.7s;
+}
+
+/* 4. Luis & Joy (The main feature) */
+.photo-style-names {
+    opacity: 0;
+    animation: fadeInUpOverlay 1.5s ease-out forwards 1s;
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0);
+    transition: text-shadow 2s ease;
+}
+
+/* 5. TAKING OFF TO FOREVER */
+.minimal-tagline {
+    opacity: 0;
+    animation: fadeInUpOverlay 1s ease-out forwards 1.3s;
+}
+
+/* 6. The Vertical Line (Grows downwards) */
+.v-line {
+    opacity: 0;
+    height: 0;
+    animation: lineGrowVertical 1.2s ease-out forwards 1.6s;
+}
+
+/* 7. The Diamond Sparkle */
+.diamond {
+    opacity: 0;
+    animation: fadeInUpOverlay 0.8s ease-out forwards 2s;
+}
+
+/* 8. The Button */
+.cta-wrapper {
+    opacity: 0;
+    animation: fadeInUpOverlay 1s ease-out forwards 2.3s;
+}
