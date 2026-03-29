@@ -3524,7 +3524,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 25px;
+    padding: 0 15px;
 }
 
 
@@ -3698,44 +3698,48 @@ footer {
     }
 }
 
-/* --- REFINED MOBILE HAMBURGER --- */
+
+/* --- REFINED MOBILE HAMBURGER & "X" TRANSITION --- */
 @media (max-width: 991px) {
     .nav-toggle {
         display: flex;
         flex-direction: column;
-        /* Reduce the gap between bars */
-        justify-content: space-around; 
-        
-        /* Smaller dimensions for elegance */
-        width: 26px;  /* Reduced from 30px */
-        height: 16px; /* Reduced from 18px */
-        
+        justify-content: space-between; /* Ensures equal spacing */
+        width: 26px;  
+        height: 16px; 
         cursor: pointer;
-        transition: opacity 0.3s;
-    }
-
-    .nav-toggle:active {
-        opacity: 0.6; /* Feedback when tapped */
+        z-index: 10002 !important; /* Stays above the menu overlay */
+        position: relative;
     }
 
     .bar {
         width: 100%;
-        height: 1.5px; /* Thinner lines look more "premium" */
-        background-color: #c5a059; /* Gold */
+        height: 2px; 
+        background-color: #c5a059; 
         border-radius: 2px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
     }
 
-    /* Adjust the "X" animation for the smaller size */
+    /* THE "X" ANIMATION */
+    /* Math: To meet in the center of a 16px height, 
+       the top bar moves down 7px and the bottom moves up 7px */
+    
     .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
+
     .nav-toggle.active .bar:nth-child(2) {
         opacity: 0;
-        transform: translateX(10px);
+        transform: translateX(10px); /* Slides middle bar out */
     }
+
     .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
+        transform: translateY(-7px) rotate(-45deg);
     }
 }
 
+/* Ensure the overlay is correctly layered */
+.nav-overlay {
+    z-index: 10000 !important;
+}
