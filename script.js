@@ -12,7 +12,6 @@ const mainContent = document.getElementById('main-content');
 const audio = document.getElementById('weddingMusic');
 const musicToggle = document.getElementById('musicToggle');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
-const rsvpForm = document.getElementById('rsvpForm');
 const quickNav = document.getElementById('quickNav');
 const backToTopBtn = document.getElementById('backToTop');
 
@@ -397,36 +396,44 @@ if (loadMoreBtn) {
 }
 
 // 7. ✨ MAGICAL RSVP FORM SUBMISSION ✨
+// --- UPDATE THIS LINE IN YOUR SCRIPT.JS ---
+const rsvpForm = document.getElementById('rsvpForm');
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzF_X30-TUy117K6crAp7DvlcnCi_jRw14DVDHDBieellh2-hCzpRwIKIF1hWF7YrugvA/exec';
+
 if (rsvpForm) {
-    rsvpForm.addEventListener('submit', function(e) {
+    rsvpForm.addEventListener('submit', e => {
         e.preventDefault();
         
-        const btn = this.querySelector('button');
-        const container = document.querySelector('.dark-glass') || document.querySelector('.rsvp-container');
+        const btn = rsvpForm.querySelector('button');
+        const container = document.querySelector('.dark-glass');
         
+        // Show loading state
+        btn.disabled = true;
         btn.innerHTML = "SENDING LOVE...";
-        btn.style.opacity = "0.7";
-        
-        setTimeout(() => {
-            // Transform card into magical thank you message
-            container.innerHTML = `
-                <div class="magic-sparkle-icon reveal" style="font-size: 3.5rem; margin-bottom: 25px; color: #e4b4b4;">✨</div>
-                <h4 class="section-title-script gold-text" style="font-size: 3.5rem; margin-bottom: 10px; color: #f9e295;">Thank You!</h4>
-                <p class="white-text" style="font-size: 1.4rem; color: #ffffff; font-style: italic;">
-                    Your response has been captured in our hearts. <br> 
-                    We can't wait to see you soon! ✈️
-                </p>
-                <div class="photo-divider small" style="margin-top: 40px;">
-                    <div class="v-line" style="height: 40px; background: #c5a059;"></div>
-                    <div class="diamond pink" style="background: #e4b4b4;"></div>
-                </div>
-            `;
-            container.style.padding = "100px 40px";
-            container.style.textAlign = "center";
-        }, 1800);
+
+        // Send data to your Google Sheet
+        fetch(scriptURL, { method: 'POST', body: new FormData(rsvpForm)})
+            .then(response => {
+                console.log('Success!', response);
+                
+                // Show Magical Success Message
+                container.innerHTML = `
+                    <div class="magic-sparkle-icon reveal" style="font-size: 3.5rem; margin-bottom: 25px; color: #e4b4b4;">✨</div>
+                    <h4 class="section-title-script gold-text" style="font-size: 3.5rem; margin-bottom: 10px; color: #f9e295;">Thank You!</h4>
+                    <p class="white-text" style="font-size: 1.4rem; color: #ffffff; font-style: italic;">
+                        Your response has been captured in our hearts. <br> 
+                        We can't wait to see you soon! ✈️
+                    </p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                btn.disabled = false;
+                btn.innerHTML = "TRY AGAIN";
+                alert("Something went wrong. Please try again!");
+            });
     });
 }
-
 
 // --- MOBILE NAV LOGIC ---
 const navToggle = document.getElementById('navToggle');
@@ -504,3 +511,4 @@ function doPost (e) {
     lock.releaseLock()
   }
 }
+
