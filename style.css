@@ -3808,3 +3808,65 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 1.8rem !important; /* Slightly smaller for mobile stacking */
     }
 }
+
+/* --- THE ENCHANTED MARQUEE --- */
+.photo-strip-container {
+    padding: 100px 0;
+    background: #fff;
+    overflow: hidden;
+    text-align: center; /* Keeps titles centered */
+}
+
+.photo-marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    margin-top: 40px;
+    /* Soft fade on edges looks more premium */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+    display: flex;
+    gap: 20px; /* Space between photos */
+    /* 80s is slow and romantic. Change to 60s to go faster */
+    animation: scroll-infinite 80s linear infinite;
+    will-change: transform; /* Boosts performance */
+}
+
+.marquee-content img {
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* This moves exactly half the total width (the first set of 21) */
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover so they can look at a specific photo */
+.photo-marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .marquee-content img {
+        width: 180px;
+        height: 250px;
+    }
+    .photo-strip-container {
+        padding: 60px 0;
+    }
+}
