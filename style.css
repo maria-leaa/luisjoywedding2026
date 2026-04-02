@@ -3870,3 +3870,12 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 60px 0;
     }
 }
+
+.late-prefix {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85em; /* Slightly smaller to keep the name as the focus */
+    opacity: 0.8;      /* Softer color */
+    margin-right: 4px; /* Space between "late" and "Mrs." */
+    text-transform: lowercase; /* Optional: adds a modern, elegant touch */
+}
