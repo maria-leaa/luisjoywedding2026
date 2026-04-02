@@ -3742,7 +3742,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /* --- REFINED MOBILE HAMBURGER & "X" TRANSITION --- */
-
+@media (max-width: 991px) {
 .nav-toggle {
     display: flex !important;
     flex-direction: column !important;
@@ -3786,6 +3786,7 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translateY(-9px) rotate(-45deg) !important;
 }
 
+}
 /* Ensure visibility on Mobile screens */
 @media (max-width: 991px) {
     .mobile-nav.show-it .nav-toggle {
